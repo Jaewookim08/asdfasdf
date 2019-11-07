@@ -13,7 +13,6 @@ namespace Netrunner.UI
         public void Init(Sprite sprite, KeyCode key, int player, int pos)
         {
             icon.sprite = sprite;
-            Debug.Log(key);
             text.text = new string((char)key, 1);
             RectTransform rt = (RectTransform)transform;
             if (player == 1)

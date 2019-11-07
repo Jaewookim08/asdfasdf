@@ -25,7 +25,7 @@ namespace Netrunner.SelectableObjects {
             Open = !Open;
         }
 
-        public override bool IsSelectable()
+        public override bool IsSelectable(int player)
         {
             return true;
         }

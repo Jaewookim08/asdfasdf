@@ -6,13 +6,14 @@ namespace Netrunner.Network
 {
     public class NetworkDoorNode : NodeAction
     {
-        public SelectableObjects.SelectableTarget target;
+        public GameObject target;
+
         private void Update()
         {
             if (player[1] && GameInput.GetKeyDown(1, ActionKey))
-                target.Act(1);
-            if (player[0] && GameInput.GetKeyDown(0, ActionKey))
-                target.Act(0);
+                target.GetComponent< SelectableObjects.SelectableTarget>().Act(1);
+            if (player[2] && GameInput.GetKeyDown(2, ActionKey))
+                target.GetComponent< SelectableObjects.SelectableTarget>().Act(2);
         }
     }
 

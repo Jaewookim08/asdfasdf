@@ -29,7 +29,7 @@ namespace Netrunner.ModuleComponents {
                 return;
             var hackableObj = hackedObject.GetComponent<HackableObject>();
             hackedObject.GetComponent<SelectableObjects.SelectableTarget>().Act(Module.PlayerInside);
-            Network.PlayerPacket.Instances[Module.PlayerInside].HackTo(hackableObj, hackedObject.transform);
+            Network.PlayerPacket.Instances[Module.PlayerInside].HackTo(transform.position, hackableObj, hackedObject.transform);
             Module.HackOut();
         }
     }
