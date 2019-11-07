@@ -10,12 +10,16 @@ namespace Netrunner.ModuleComponents {
         {
             if (GameInput.GetKeyDown(player, ActionKey)) //arm selection started
             {
-                StartSelecting("Interactable", 3f);
+                MovementAction movement = GetComponent<MovementAction>();
+                if (movement != null) movement.enabled = false;
+                selection.StartSelecting(player, "Interactable", 3f);
             }
             if (GameInput.GetKeyUp(player, ActionKey))
             {
-                GameObject g = StopSelecting();
+                GameObject g = selection.StopSelecting();
                 if (g != null) g.GetComponent<SelectableTarget>().Act(Module.PlayerInside);
+                MovementAction movement = GetComponent<MovementAction>();
+                if (movement != null) movement.enabled = true;
             }
         }
     }

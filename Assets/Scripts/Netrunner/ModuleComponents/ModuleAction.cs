@@ -9,7 +9,6 @@ namespace Netrunner.ModuleComponents {
     [RequireComponent(typeof (ModuleManager))]
     public abstract class ModuleAction : MonoBehaviour {
         public Sprite Icon;
-        public int ActionNumber;
 
         /// <summary>
         /// 들어있는 모듈의 ModuleManager
@@ -27,8 +26,7 @@ namespace Netrunner.ModuleComponents {
         /// <param name="player"></param>
         public void Init(int player) {
             Module = GetComponent<ModuleManager>();
-            UIManager.current.AddAbility(Icon, GameInput.GetRealKey(Module.PlayerInside, ActionKey, 0));
-        }        
-        
+            if (ActionKey != GameInput.Key.None) UIManager.current.AddAbility(Icon, GameInput.GetRealKey(Module.PlayerInside, ActionKey, 0));
+        }
     }
 }

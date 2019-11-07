@@ -10,7 +10,7 @@ namespace Netrunner.ModuleComponents {
     /// <summary>
     /// In every module, manages which player is inside, enable/disable ModuleActions
     /// </summary>
-    public class ModuleManager : TintSelectableTarget {
+    public class ModuleManager : TintSelectableTarget, HackableObject {
         /// <summary>
         /// List of all ModuleActions in this module
         /// </summary>
@@ -24,7 +24,7 @@ namespace Netrunner.ModuleComponents {
 
         public override void Act(int player)
         {
-            throw new System.NotImplementedException();
+            PlayerInside = player;
         }
 
         // Start is called before the first frame update

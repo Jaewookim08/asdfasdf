@@ -25,6 +25,8 @@ namespace Netrunner.Network
             Hacking = false;
             MoveTarget = target;
             TargetObj = transform;
+
+            target.MoveIn(player);
         }
         public void MoveTo(NetworkNode target, Transform transform, float velocity)
         {
@@ -37,6 +39,8 @@ namespace Netrunner.Network
             Hacking = true;
             HackTarget = target;
             TargetObj = transform;
+
+            target.HackIn(player);
         }
         public void HackTo(HackableObject target, Transform transform, float velocity)
         {

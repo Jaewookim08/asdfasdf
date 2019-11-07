@@ -11,12 +11,15 @@ namespace Netrunner.ModuleComponents {
         {
             if (GameInput.GetKeyDown(player, ActionKey)) //hack started
             {
-                Debug.Log("Hack" + Module.PlayerInside);
-                StartSelecting("Hackable", 6f);
+                MovementAction movement = GetComponent<MovementAction>();
+                if (movement != null) movement.enabled = false;
+                selection.StartSelecting(player, "Hackable", 6f);
             }
             if (GameInput.GetKeyUp(player, ActionKey))
             {
-                GameObject g = StopSelecting();
+                GameObject g = selection.StopSelecting();
+                MovementAction movement = GetComponent<MovementAction>();
+                if (movement != null) movement.enabled = true;
                 if (g != null) Hack(g);
             }
         }
@@ -24,11 +27,9 @@ namespace Netrunner.ModuleComponents {
         private void Hack(GameObject hackedObject) {
             if (gameObject == hackedObject)
                 return;
-            var hackedModuleManager = hackedObject.GetComponent<ModuleManager>();
-            if (hackedModuleManager == null)
-                throw new Exception("The object being hacked doesn't have ModuleManager");
-            if (hackedModuleManager.PlayerInside != 0) return;
-            hackedModuleManager.HackIn(Module.PlayerInside);
+            var hackableObj = hackedObject.GetComponent<HackableObject>();
+            hackedObject.GetComponent<SelectableObjects.SelectableTarget>().Act(Module.PlayerInside);
+            Network.PlayerPacket.Instances[Module.PlayerInside].HackTo(hackableObj, hackedObject.transform);
             Module.HackOut();
         }
     }

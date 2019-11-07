@@ -9,6 +9,10 @@ namespace Netrunner.Network
         const float PacketVelocity = 10f;
 
         public bool[] Player = new bool[2];
+        public List<NodeAction> Actions;
+
+        public bool[] Movable = { true, true, true };
+
         /// <summary>
         /// 0 1 2 3 -> R U L D
         /// </summary>
@@ -33,15 +37,29 @@ namespace Netrunner.Network
             }
         }
 
-        private void MovePlayer(int player, int direction)
+        protected virtual void MovePlayer(int player, int direction)
         {
             PlayerPacket.Instances[player].MoveTo(Connections[direction], Connections[direction].transform, PacketVelocity);
-            Player[player] = false;
+            MoveOut(player);
         }
 
-        public void MoveIn(int player)
+        public void MoveOut(int player)
+        {
+            Player[player] = false;
+            if (!(Player[1] || Player[2]))
+                foreach (NodeAction action in Actions)
+                    action.enabled = false;
+        }
+
+        public virtual void MoveIn(int player)
         {
             Player[player] = true;
+            UI.UIManager.current.ChangeAbilities(player);
+            foreach(NodeAction action in Actions)
+            {
+                action.enabled = true;
+                action.Init(player);
+            }
         }
     }
 
