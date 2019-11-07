@@ -23,7 +23,10 @@ namespace Netrunner.Network
         public void Init(int player)
         {
             Node = GetComponent<NetworkNode>();
-            if(ActionKey != GameInput.Key.None) UIManager.current.AddAbility(Icon, GameInput.GetRealKey(player, ActionKey, 0));
+            
+            var keys = GameInput.GetRealKeys(player, ActionKey);
+            if (keys.Count>0) 
+                UIManager.current.AddAbility(Icon, keys[0]);
         }
     }
 

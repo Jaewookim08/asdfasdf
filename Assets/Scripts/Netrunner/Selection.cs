@@ -55,7 +55,7 @@ namespace Netrunner
             {
                 UpdateTargets(tag, range2);
 
-                Vector2 joystick = GameInput.getLeftJoystickVector2(PlayerInside);
+                Vector2 joystick = GameInput.GetLeftJoystickVector(PlayerInside);
                 Joystick |= joystick.sqrMagnitude > 0f;
 
                 if (Joystick)
