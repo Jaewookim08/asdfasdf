@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Netrunner.ModuleComponents.SelectableObjects;
+using Netrunner.SelectableObjects;
 using Netrunner.UI;
 using UnityEngine;
 
@@ -54,6 +54,11 @@ namespace Netrunner.ModuleComponents {
             foreach (var action in Actions) {
                 action.enabled = false;
             }
+        }
+
+        public override bool IsSelectable()
+        {
+            return PlayerInside == 0;
         }
     }
 }

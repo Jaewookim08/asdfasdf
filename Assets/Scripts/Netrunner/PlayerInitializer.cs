@@ -4,13 +4,13 @@ using UnityEngine;
 using Netrunner.ModuleComponents;
 
 namespace Netrunner{
-    [RequireComponent(typeof (ModuleManager))]
+    [RequireComponent(typeof (HackableObject))]
     public class PlayerInitializer : MonoBehaviour {
         public int PlayerNum;
 
         // Start is called before the first frame update
         void Start() {
-            GetComponent<ModuleManager>().HackIn(PlayerNum);
+            GetComponent<HackableObject>().HackIn(PlayerNum);
         }
     }
 }

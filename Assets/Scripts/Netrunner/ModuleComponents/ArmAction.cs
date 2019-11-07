@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Netrunner.ModuleComponents.SelectableObjects;
+using Netrunner.SelectableObjects;
 using UnityEngine;
 
 namespace Netrunner.ModuleComponents {

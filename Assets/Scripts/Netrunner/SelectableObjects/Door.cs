@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Netrunner.ModuleComponents.SelectableObjects {
+namespace Netrunner.SelectableObjects {
     public class Door : TintSelectableTarget
     {
         bool Open = true;
@@ -23,6 +23,11 @@ namespace Netrunner.ModuleComponents.SelectableObjects {
             if(Open) transform.localScale = new Vector3(0.3f, 3f, 1f);
             else transform.localScale = new Vector3(1f, 3f, 1f);
             Open = !Open;
+        }
+
+        public override bool IsSelectable()
+        {
+            return true;
         }
     }
 }
