@@ -29,3 +29,6 @@ sysinfo.txt
 *.stackdump
 
 /Library
+/.vs
+/Temp
+.collabignore
