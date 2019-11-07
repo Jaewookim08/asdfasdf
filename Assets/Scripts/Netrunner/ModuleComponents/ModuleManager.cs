@@ -1,0 +1,59 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Netrunner.ModuleComponents.SelectableObjects;
+using Netrunner.UI;
+using UnityEngine;
+
+
+namespace Netrunner.ModuleComponents {
+    /// <summary>
+    /// In every module, manages which player is inside, enable/disable ModuleActions
+    /// </summary>
+    public class ModuleManager : TintSelectableTarget {
+        /// <summary>
+        /// List of all ModuleActions in this module
+        /// </summary>
+        public List<ModuleAction> Actions;
+
+
+        /// <summary>
+        /// Whether player is inside the module. 0 for none, 1, 2 for player 1, 2
+        /// </summary>
+        public int PlayerInside { get; private set; }
+
+        public override void Act(int player)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        // Start is called before the first frame update
+        /*private void Start() {
+            Actions = GetComponentsInChildren<ModuleAction>().ToList();
+        }*/
+
+        /// <summary>
+        /// Called for going in the module
+        /// </summary>
+        public void HackIn(int player) {
+            //enable all actions, update UI, etc
+            PlayerInside = player;
+            UIManager.current.ChangeAbilities(player);
+            foreach (var action in Actions) {
+                action.enabled = true;
+                action.Init(player);
+            }
+        }
+
+        /// <summary>
+        /// Called when going out of the module
+        /// </summary>
+        public void HackOut() {
+            //disable all actions, etc
+            PlayerInside = 0;
+            foreach (var action in Actions) {
+                action.enabled = false;
+            }
+        }
+    }
+}
