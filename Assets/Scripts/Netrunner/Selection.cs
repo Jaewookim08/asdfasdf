@@ -95,11 +95,11 @@ namespace Netrunner
                     SelectableTarget selectable = targets[i].GetComponent<SelectableTarget>();
                     if (!Targets.Contains(targets[i])) //add targets that newly came into range
                     {
-                        if (!selectable.IsSelectable()) continue;
+                        if (!selectable.IsSelectable(PlayerInside)) continue;
                         Targets.Add(targets[i]);
                         selectable.SetGlow(PlayerInside, true);
                     }
-                    else if (!selectable.IsSelectable()) Targets.Remove(targets[i]);
+                    else if (!selectable.IsSelectable(PlayerInside)) Targets.Remove(targets[i]);
                 }
                 else //out of range
                 {

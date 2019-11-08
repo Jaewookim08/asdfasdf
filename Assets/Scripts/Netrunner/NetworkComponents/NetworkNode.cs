@@ -7,11 +7,14 @@ namespace Netrunner.Network
     public class NetworkNode : MonoBehaviour
     {
         const float PacketVelocity = 10f;
+        
+        [HideInInspector]
+        public bool[] Player = new bool[3];
+        [HideInInspector]
+        public bool[] Movable = { true, true, true };
 
-        public bool[] Player = new bool[2];
         public List<NodeAction> Actions;
 
-        public bool[] Movable = { true, true, true };
 
         /// <summary>
         /// 0 1 2 3 -> R U L D
@@ -21,14 +24,14 @@ namespace Netrunner.Network
         // Update is called once per frame
         void Update()
         {
-            if (Player[1])
+            if (Player[1] && Movable[1])
             {
                 if (Connections[0] != null && GameInput.GetKeyDown(1, GameInput.Key.Right)) MovePlayer(1, 0);
                 else if (Connections[1] != null && GameInput.GetKeyDown(1, GameInput.Key.Up)) MovePlayer(1, 1);
                 else if (Connections[2] != null && GameInput.GetKeyDown(1, GameInput.Key.Left)) MovePlayer(1, 2);
                 else if (Connections[3] != null && GameInput.GetKeyDown(1, GameInput.Key.Down)) MovePlayer(1, 3);
             }
-            if (Player[2])
+            if (Player[2] && Movable[2])
             {
                 if (Connections[0] != null && GameInput.GetKeyDown(2, GameInput.Key.Right)) MovePlayer(2, 0);
                 else if (Connections[1] != null && GameInput.GetKeyDown(2, GameInput.Key.Up)) MovePlayer(2, 1);
@@ -39,7 +42,7 @@ namespace Netrunner.Network
 
         protected virtual void MovePlayer(int player, int direction)
         {
-            PlayerPacket.Instances[player].MoveTo(Connections[direction], Connections[direction].transform, PacketVelocity);
+            PlayerPacket.Instances[player].MoveTo(transform.position, Connections[direction], Connections[direction].transform, PacketVelocity);
             MoveOut(player);
         }
 

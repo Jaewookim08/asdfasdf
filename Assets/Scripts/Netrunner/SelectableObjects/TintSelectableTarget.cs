@@ -9,7 +9,7 @@ namespace Netrunner.SelectableObjects {
         public bool[] Glow = new bool[3];
 
         public abstract void Act(int player);
-        public abstract bool IsSelectable();
+        public abstract bool IsSelectable(int player);
 
         public void SetGlow(int player, bool enabled) {
             Glow[player] = enabled;

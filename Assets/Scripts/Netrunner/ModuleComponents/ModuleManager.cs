@@ -56,7 +56,7 @@ namespace Netrunner.ModuleComponents {
             }
         }
 
-        public override bool IsSelectable()
+        public override bool IsSelectable(int player)
         {
             return PlayerInside == 0;
         }
