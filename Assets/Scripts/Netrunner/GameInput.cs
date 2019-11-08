@@ -48,14 +48,14 @@ namespace Netrunner {
 
         public static float GetHorizontalIgnoreDirection(int player)
         {
-            Vector2 joystick = getLeftJoystickVector2(player);
+            /*Vector2 joystick = getLeftJoystickVector2(player);
             float val = joystick.magnitude;
             if (val > 0.19f)
             {
                 if (joystick.x < 0) val = -val;
                 return val;
-            }
-            val = Input.GetAxis("BHorizontal_" + player);
+            }*/
+            float val = Input.GetAxis("BHorizontal_" + player);
             if (val != 0) return val;
             else return (GetKey(player, Key.Right) ? 1f : 0f) + (GetKey(player, Key.Left) ? -1f : 0f);
         }
