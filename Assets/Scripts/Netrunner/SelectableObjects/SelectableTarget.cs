@@ -12,6 +12,6 @@ namespace Netrunner.SelectableObjects {
 
         void SetHighlight(int player, bool enabled);
 
-        bool IsSelectable(int player);
+        bool IsSelectable(int player, string tag);
     }
 }

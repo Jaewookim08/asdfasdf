@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
-  ActionKey: 0
+  ActionKey: 3
   jumpSpeed: 8
   groundLayer:
     serializedVersion: 2

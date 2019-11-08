@@ -49,6 +49,7 @@ namespace Netrunner.Network
             var hackableObj = hackedObject.GetComponent<HackableObject>();
             hackedObject.GetComponent<SelectableObjects.SelectableTarget>().Act(player);
             PlayerPacket.Instances[player].HackTo(transform.position, hackableObj, hackedObject.transform);
+            UIManager.current.ClearAbilities(player);
             Node.MoveOut(player);
         }
     }

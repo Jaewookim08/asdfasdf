@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Netrunner.Network;
 
-namespace Netrunner.Network
+namespace Netrunner
 {
     public class PlayerPacket : MonoBehaviour
     {

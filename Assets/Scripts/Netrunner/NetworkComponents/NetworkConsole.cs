@@ -20,7 +20,7 @@ namespace Netrunner.Network
             MoveIn(player);
         }
 
-        public bool IsSelectable(int player)
+        public bool IsSelectable(int player, string tag)
         {
             return !Player[player];
         }

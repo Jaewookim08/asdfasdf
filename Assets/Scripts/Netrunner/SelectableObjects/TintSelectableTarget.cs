@@ -5,11 +5,11 @@ using UnityEngine;
 namespace Netrunner.SelectableObjects {
     public abstract class TintSelectableTarget : MonoBehaviour, SelectableTarget //interface로 바꿔도 될 것 같네요
     {
-        public SpriteRenderer[] TintSprites;
+        public SpriteRenderer[] TintSprites = new SpriteRenderer[3];
         public bool[] Glow = new bool[3];
 
         public abstract void Act(int player);
-        public abstract bool IsSelectable(int player);
+        public abstract bool IsSelectable(int player, string tag);
 
         public void SetGlow(int player, bool enabled) {
             Glow[player] = enabled;

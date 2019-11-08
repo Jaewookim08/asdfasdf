@@ -9,20 +9,20 @@ namespace Netrunner
     {
         public GameObject Cursor;
 
-        private const float CursorSpeed = 10f;
-        private const float CancelTime = 0.5f;
+        protected const float CursorSpeed = 10f;
+        protected const float CancelTime = 0.5f;
 
-        private List<GameObject> Targets = new List<GameObject>();
+        protected List<GameObject> Targets = new List<GameObject>();
         //private List<SelectableTarget> Components = new List<SelectableTarget>();
-        Coroutine coroutine;
-        float range;
-        GameObject CurrentTarget;
-        bool Joystick = false;
-        Vector2 Offset;
-        float StartTime;
-        int PlayerInside = 0;
+        protected Coroutine coroutine;
+        protected float range;
+        protected GameObject CurrentTarget;
+        protected bool Joystick = false;
+        protected Vector2 Offset;
+        protected float StartTime;
+        protected int PlayerInside = 0;
 
-        public void StartSelecting(int player, string tag, float range)
+        public virtual void StartSelecting(int player, string tag, float range)
         {
             PlayerInside = player;
             this.range = range;
@@ -42,10 +42,14 @@ namespace Netrunner
 
             Targets.Clear();
             //Components.Clear();
-            StopCoroutine(coroutine);
+            if(coroutine!=null) StopCoroutine(coroutine);
+            coroutine = null;
 
             Cursor.SetActive(false);
-            return CurrentTarget;
+
+            GameObject temp = CurrentTarget;
+            CurrentTarget = null;
+            return temp;
         }
 
         IEnumerator UpdateCoroutine(string tag, float range)
@@ -74,39 +78,40 @@ namespace Netrunner
             }
         }
 
-        private void UpdateTargets(string tag, float range2)  //modules, selectableTargets must be at z=0;
+        protected virtual void UpdateTargets(string tag, float range2)  //modules, selectableTargets must be at z=0;
         {
-            GameObject[] tagTargets = GameObject.FindGameObjectsWithTag(tag);
-            SelectableTarget[] selectables = new SelectableTarget[tagTargets.Length];
-            GameObject[] targets = new GameObject[tagTargets.Length];
+            GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+            int count = targets.Length;
+            SelectableTarget[] selectables = new SelectableTarget[count];
 
-            for (int i = 0; i < targets.Length; i++)
-                selectables[i] = tagTargets[i].GetComponent<SelectableTarget>();
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < count; i++)
+                selectables[i] = targets[i].GetComponent<SelectableTarget>();
+            for (int i = 0; i < count; i++)
             {
-                if (selectables[i] == null) targets[i] = tagTargets[i].transform.parent.gameObject;
-                else targets[i] = tagTargets[i];
-            }                    
+                if (selectables[i] == null)
+                {
+                    targets[i] = targets[i].transform.parent.gameObject;
+                    selectables[i] = targets[i].GetComponent<SelectableTarget>();
+                }
+            }
 
-            for(int i=0; i<targets.Length; i++)
+            for(int i=0; i<count; i++)
             {
                 if((transform.position - targets[i].transform.position).sqrMagnitude <= range2)
                 {
-                    SelectableTarget selectable = targets[i].GetComponent<SelectableTarget>();
                     if (!Targets.Contains(targets[i])) //add targets that newly came into range
                     {
-                        if (!selectable.IsSelectable(PlayerInside)) continue;
+                        if (!selectables[i].IsSelectable(PlayerInside, tag)) continue;
                         Targets.Add(targets[i]);
-                        selectable.SetGlow(PlayerInside, true);
+                        selectables[i].SetGlow(PlayerInside, true);
                     }
-                    else if (!selectable.IsSelectable(PlayerInside)) Targets.Remove(targets[i]);
+                    else if (!selectables[i].IsSelectable(PlayerInside, tag)) Targets.Remove(targets[i]);
                 }
                 else //out of range
                 {
                     if (Targets.Remove(targets[i])) //remove targets that went out of range
                     {
                         targets[i].GetComponent<SelectableTarget>().SetGlow(PlayerInside, false);
-                        //if(CurrentTarget == targets[i]) ChangeTarget(); //change CurrentTarget if current target went out of range
                     }
                 }
             }
