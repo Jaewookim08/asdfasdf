@@ -11,6 +11,8 @@ using UnityEngine;
 /// 후에 점프 기능을 넣을 예정입니다.
 /// </summary>
 
+    //git test
+
 public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed;
