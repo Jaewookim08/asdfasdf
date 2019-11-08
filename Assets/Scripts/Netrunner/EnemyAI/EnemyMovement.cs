@@ -11,7 +11,6 @@ using UnityEngine;
 /// 후에 점프 기능을 넣을 예정입니다.
 /// </summary>
 
-    //git test
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     int iterator;
     bool incr;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +30,10 @@ public class EnemyMovement : MonoBehaviour
         originalPos = transform.position;
 
         destPos = new List<Vector3>();
-        for (int i=0; i<transform.childCount; i++)
+        Transform PatrolPath = transform.Find("PatrolPath");
+        for (int i = 0; i < PatrolPath.childCount; i++)
         {
-            Transform dest = transform.GetChild(i);
+            Transform dest = PatrolPath.GetChild(i);
             destPos.Add(dest.position);
             dest.gameObject.SetActive(false);
         }
@@ -57,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("arrive dest, move to next dest");
             updateIterator();
             currentDest = destPos[iterator];
-            Debug.Log("Current Dest: "+currentDest);
+            Debug.Log("Current Dest: " + currentDest);
         }
 
         float speed = moveSpeed * Time.deltaTime;
@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
         iterator = incr ? iterator + 1 : iterator - 1;
     }
 
-    
+
 }
 
 
