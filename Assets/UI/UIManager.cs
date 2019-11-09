@@ -22,6 +22,10 @@ namespace Netrunner.UI
         public void ChangeAbilities(int player)
         {
             CurrentlyAddingPlayer = player;
+            ClearAbilities(player);
+        }
+        public void ClearAbilities(int player)
+        {
             foreach (AbilityIndicator a in AbilityPanels[player])
                 Destroy(a.gameObject);
             AbilityPanels[player].Clear();

@@ -24,9 +24,11 @@ namespace Netrunner.ModuleComponents {
         /// Called when player gets in the module
         /// </summary>
         /// <param name="player"></param>
-        public void Init(int player) {
+        public virtual void Init(int player) {
             Module = GetComponent<ModuleManager>();
-            if (ActionKey != GameInput.Key.None) UIManager.current.AddAbility(Icon, GameInput.GetRealKey(Module.PlayerInside, ActionKey, 0));
+            var keys = GameInput.GetRealKeys(Module.PlayerInside, ActionKey);
+            if (keys.Count>0) 
+                UIManager.current.AddAbility(Icon, GameInput.GetRealKeys(Module.PlayerInside, ActionKey)[0]);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Netrunner.ModuleComponents{
                 
 //            m_Rigidbody2D.velocity = vel;
 //            m_Rigidbody2D.AddForce(new Vector2(GameInput.GetHorizontalAxis(player) * moveAcceleration, 0));
-            m_Rigidbody2D.velocity = (new Vector2(GameInput.GetHorizontalIgnoreDirection(player) * moveSpeed, m_Rigidbody2D.velocity.y));
+            m_Rigidbody2D.velocity = (new Vector2(GameInput.GetHorizontal(player) * moveSpeed, m_Rigidbody2D.velocity.y));
         }
         
     }

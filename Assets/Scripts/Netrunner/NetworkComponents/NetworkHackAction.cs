@@ -5,10 +5,9 @@ using Netrunner.UI;
 
 namespace Netrunner.Network
 {
-    [RequireComponent(typeof(Selection))]
     public class NetworkHackAction : NodeAction
     {
-        Selection[] selections;
+        public Selection[] selections = new Selection[2];
 
         private void Update()
         {
@@ -49,7 +48,8 @@ namespace Netrunner.Network
                 return;
             var hackableObj = hackedObject.GetComponent<HackableObject>();
             hackedObject.GetComponent<SelectableObjects.SelectableTarget>().Act(player);
-            PlayerPacket.Instances[player].HackTo(hackableObj, hackedObject.transform);
+            PlayerPacket.Instances[player].HackTo(transform.position, hackableObj, hackedObject.transform);
+            UIManager.current.ClearAbilities(player);
             Node.MoveOut(player);
         }
     }

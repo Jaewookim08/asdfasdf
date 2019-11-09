@@ -56,9 +56,10 @@ namespace Netrunner.ModuleComponents {
             }
         }
 
-        public override bool IsSelectable()
+        public override bool IsSelectable(int player, string tag)
         {
-            return PlayerInside == 0;
+            if (tag == "Hackable") return PlayerInside == 0;
+            else return true;
         }
     }
 }

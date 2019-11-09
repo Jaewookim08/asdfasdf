@@ -7,6 +7,8 @@ TagManager:
   - Hackable
   - Interactable
   - Wall
+  - Combinable
+
   layers:
   - Default
   - TransparentFX
@@ -43,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Network
+    uniqueID: 3477480647
+    locked: 0
+  - name: Particle
+    uniqueID: 4014231891
     locked: 0

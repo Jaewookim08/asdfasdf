@@ -38,7 +38,7 @@ namespace Netrunner.ModuleComponents {
         }
         
         private void Update() {
-            if (GameInput.GetKey(player, GameInput.Key.Action3) && Math.Abs(m_Rigidbody2D.velocity.y) < 0.01f)
+            if (GameInput.GetKey(player, ActionKey) && Math.Abs(m_Rigidbody2D.velocity.y) < 0.01f)
                 Jump();
         }
         
