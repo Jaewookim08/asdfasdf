@@ -11,7 +11,8 @@ namespace Netrunner {
         public enum Key {None=0, Action1=1, Action2=2, Action3=3, Action4=4, Action5=5, Action6=6, Left=7, Right=8, Up=9, Down=10};
         
 
-        public static bool GetKey(int player, Key key) {
+        public static bool GetKey(int player, Key key) 
+        {
             return GetRealKeys(player, key).Aggregate(false, (curr, keyCode) => curr | Input.GetKey(keyCode));
         }
 
@@ -20,11 +21,13 @@ namespace Netrunner {
         // 키보드, 컨트롤러를 같이 누르는 경우 keydown 2번, keyup 0번 나오는 문제? //
         /////////////////////////////////////////////////////////////////////////////
 
-        public static bool GetKeyDown(int player, Key key) {
+        public static bool GetKeyDown(int player, Key key) 
+        {
             return GetRealKeys(player, key).Aggregate(false, (curr, keyCode) => curr | Input.GetKeyDown(keyCode));
         }
         
-        public static bool GetKeyUp(int player, Key key) {
+        public static bool GetKeyUp(int player, Key key) 
+        {
             return GetRealKeys(player, key).Aggregate(false, (curr, keyCode) => curr | Input.GetKeyUp(keyCode));
         }
 
@@ -44,7 +47,8 @@ namespace Netrunner {
         
     
         // 화살표로 가리키는 방향의 단위 벡터(또는 0벡터) 반환.
-        public static Vector2 GetDirection(int player) {
+        public static Vector2 GetDirection(int player)
+        {
             var vec = GetButtonJoystickDirection(player);
             if (vec.sqrMagnitude > 0.1f) return vec;
             return GetKeyboardDirection(player);

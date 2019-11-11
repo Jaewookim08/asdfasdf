@@ -12,11 +12,9 @@ namespace Netrunner.ModuleComponents {
         }
         public void Jump(float speed) {
             // determine if on ground
-
-            
             var grounded = Physics2D.BoxCast(
                  transform.TransformPoint(
-                     m_BoxCollider2D.offset-new Vector2(0,m_BoxCollider2D.size.y/2-0.01f)),
+                     m_BoxCollider2D.offset-new Vector2(0,m_BoxCollider2D.size.y/2 - 0.01f)),
                  new Vector2(transform.TransformVector(m_BoxCollider2D.size).x-0.08f, 0.01f),
                 0, Vector2.down, 0.1f, groundLayer);
             
@@ -38,7 +36,7 @@ namespace Netrunner.ModuleComponents {
         }
         
         private void Update() {
-            if (GameInput.GetKey(player, ActionKey) && Math.Abs(m_Rigidbody2D.velocity.y) < 0.01f)
+            if (GameInput.GetKey(player, ActionKey))// && Math.Abs(m_Rigidbody2D.velocity.y) < 0.01f)
                 Jump();
         }
         
