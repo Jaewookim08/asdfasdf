@@ -10,7 +10,7 @@ namespace Netrunner.ModuleComponents {
     /// <summary>
     /// In every module, manages which player is inside, enable/disable ModuleActions
     /// </summary>
-    public class ModuleManager : TintSelectableTarget, HackableObject {
+    public class ModuleManager : TintSelectableTarget, HackableObject, SuspiciousObject {
         /// <summary>
         /// List of all ModuleActions in this module
         /// </summary>
@@ -38,6 +38,7 @@ namespace Netrunner.ModuleComponents {
         public void HackIn(int player) {
             //enable all actions, update UI, etc
             PlayerInside = player;
+            tag = "Player";
             UIManager.current.ChangeAbilities(player);
             foreach (var action in Actions) {
                 action.enabled = true;
@@ -51,6 +52,7 @@ namespace Netrunner.ModuleComponents {
         public void HackOut() {
             //disable all actions, etc
             PlayerInside = 0;
+            tag = "Untagged";
             foreach (var action in Actions) {
                 action.enabled = false;
             }
@@ -61,5 +63,11 @@ namespace Netrunner.ModuleComponents {
             if (tag == "Hackable") return PlayerInside == 0;
             else return true;
         }
+
+        public float GetSuspiciousness()
+        {
+            return 0f;
+        }
+
     }
 }
