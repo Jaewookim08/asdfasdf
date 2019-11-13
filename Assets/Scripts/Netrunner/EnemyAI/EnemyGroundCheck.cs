@@ -19,7 +19,7 @@ public class EnemyGroundCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.onGround = true;
             Debug.Log("on Ground");
         }
@@ -29,7 +29,7 @@ public class EnemyGroundCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.onGround = true;
         }
     }
@@ -38,7 +38,7 @@ public class EnemyGroundCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.onGround = false;
             Debug.Log("get away from ground");
         }

@@ -22,7 +22,7 @@ public class EnemyObstacleCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.facingWall = true;
             Debug.Log("facing wall");
         }
@@ -32,7 +32,7 @@ public class EnemyObstacleCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.facingWall = true;
         }
     }
@@ -41,7 +41,7 @@ public class EnemyObstacleCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Tilemap")
         {
-            EnemyMovement em = gameObject.transform.parent.GetComponent<EnemyMovement>();
+            EnemyMovement em = gameObject.transform.parent.parent.GetComponent<EnemyMovement>();
             em.facingWall = false;
             Debug.Log("get away from wall");
         }
