@@ -95,14 +95,3 @@ public class EnemyMovement : MonoBehaviour
 
 
 }
-
-
-static class ListExtension
-{
-    public static T pop<T>(this List<T> list, int index)
-    {
-        T r = list[index];
-        list.RemoveAt(index);
-        return r;
-    }
-}
