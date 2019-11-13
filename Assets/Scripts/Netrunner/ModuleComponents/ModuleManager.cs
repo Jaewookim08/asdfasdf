@@ -74,7 +74,11 @@ namespace Netrunner.ModuleComponents {
         {
             if(GetComponent<SpriteRenderer>()==null)
                 gameObject.AddComponent<SpriteRenderer>();
-            for(int i=1; i<3; i++)
+            if (GetComponent<Rigidbody2D>() == null)
+                gameObject.AddComponent<Rigidbody2D>();
+            if (GetComponent<Collider2D>() == null)
+                gameObject.AddComponent<BoxCollider2D>();
+            for (int i=1; i<3; i++)
                 if (TintSprites[i] == null)
                 {
                     GameObject g = Instantiate(Resources.Load<GameObject>("Builder/Tint"), transform);

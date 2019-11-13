@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Netrunner.Network
 {
-    public class NetworkDoorAction : NodeAction
+    public class NetworkActAction : NodeAction
     {
         public GameObject target;
 
