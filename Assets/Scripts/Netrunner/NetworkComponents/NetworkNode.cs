@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 namespace Netrunner.Network
@@ -13,7 +15,7 @@ namespace Netrunner.Network
         [HideInInspector]
         public bool[] Movable = { true, true, true };
 
-        public List<NodeAction> Actions;
+        public List<NodeAction> Actions = new List<NodeAction>();
 
 
         /// <summary>
@@ -63,6 +65,34 @@ namespace Netrunner.Network
                 action.enabled = true;
                 action.Init(player);
             }
+        }
+
+
+        [ContextMenu("Initialize")]
+        void EditorInitialize()
+        {
+            
+
+            List<NodeAction> actions = new List<NodeAction>(GetComponents<NodeAction>());
+            Actions.Clear();
+            foreach (NodeAction a in actions)
+                Actions.Add(a);
+            List<Selection> s = new List<Selection>(GetComponentsInChildren<Selection>());
+            if (Actions.Any(a=>a is NetworkHackAction))
+            {
+                while (s.Count < 2)
+                {
+                    GameObject g = Instantiate(Resources.Load<GameObject>("Builder/Selection"), transform);
+                    s.Add(g.GetComponent<Selection>());
+                }
+            }
+            foreach (NodeAction a in Actions)
+                if (a is NetworkHackAction) ((NetworkHackAction)a).selections = s.ToArray();
+        }
+        [ContextMenu("Initialize", true)]
+        bool EditorValidate()
+        {
+            return !(this is NetworkConsole);
         }
     }
 

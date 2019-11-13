@@ -14,7 +14,7 @@ namespace Netrunner.ModuleComponents {
         /// <summary>
         /// List of all ModuleActions in this module
         /// </summary>
-        public List<ModuleAction> Actions;
+        public List<ModuleAction> Actions = new List<ModuleAction>();
 
 
         /// <summary>
@@ -88,10 +88,33 @@ namespace Netrunner.ModuleComponents {
             ModuleAction a = actions.Find(m => m is HackAction);
             if (a == null)
             {
-                gameObject.AddComponent<HackAction>();
+                a = gameObject.AddComponent<HackAction>();
             }
-                Actions.Add(a);
-
+            else actions.Remove(a);
+            Actions.Add(a);
+            foreach (ModuleAction ma in actions)
+                Actions.Add(ma);
+            Selection s = GetComponentInChildren<CombineSelection>();
+            a = Actions.Find(m => m is CombineAction);
+            if (a != null)
+            {
+                if (s == null)
+                {
+                    s = GetComponentInChildren<Selection>();
+                    if (s != null) Destroy(s.gameObject);
+                    GameObject g = Instantiate(Resources.Load<GameObject>("Builder/CombineSelection"), transform);
+                    s = g.GetComponent<CombineSelection>();
+                }
+                ((CombineAction)a).selection = s;
+            }
+            if (s == null) s = GetComponentInChildren<Selection>();
+            if (s == null && Actions.Any(m=> m is SelectingAction))
+            {
+                GameObject g = Instantiate(Resources.Load<GameObject>("Builder/Selection"), transform);
+                s = g.GetComponent<Selection>();
+            }
+            foreach (ModuleAction ma in Actions)
+                if (ma is SelectingAction) ((SelectingAction)ma).selection = s;
         }
 
     }
