@@ -69,5 +69,30 @@ namespace Netrunner.ModuleComponents {
             return 0f;
         }
 
+        [ContextMenu("Initialize")]
+        public void EditorInitialize()
+        {
+            if(GetComponent<SpriteRenderer>()==null)
+                gameObject.AddComponent<SpriteRenderer>();
+            for(int i=1; i<3; i++)
+                if (TintSprites[i] == null)
+                {
+                    GameObject g = Instantiate(Resources.Load<GameObject>("Builder/Tint"), transform);
+                    g.name = "P"+i+"Tint";
+                    g.layer = LayerMask.NameToLayer("Player" + i + "View");
+                    TintSprites[i] = g.GetComponent<SpriteRenderer>();
+                }
+
+            List<ModuleAction> actions = new List<ModuleAction>(GetComponents<ModuleAction>());
+            Actions.Clear();
+            ModuleAction a = actions.Find(m => m is HackAction);
+            if (a == null)
+            {
+                gameObject.AddComponent<HackAction>();
+            }
+                Actions.Add(a);
+
+        }
+
     }
 }
