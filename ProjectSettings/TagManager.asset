@@ -8,7 +8,6 @@ TagManager:
   - Interactable
   - Wall
   - Combinable
-
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - Ground
   - Modules
   - Enemies
-  - 
+  - Press
   - 
   - 
   - 

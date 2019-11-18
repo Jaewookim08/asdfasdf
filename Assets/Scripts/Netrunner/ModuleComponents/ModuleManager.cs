@@ -69,6 +69,23 @@ namespace Netrunner.ModuleComponents {
             return 0f;
         }
 
+        public void ModuleDestroy()
+        {
+            Transform t;
+            for (int i = 0; i < transform.childCount; i++)
+                if ((t = transform.GetChild(i)).CompareTag("Hackable")) Destroy(t.gameObject);
+
+            if (PlayerInside == 0) return;
+
+            HackAction h = null;
+            foreach (ModuleAction a in Actions) {
+                if ((a is HackAction)) h = (HackAction)a;
+                else a.enabled = false;
+            }
+            UIManager.current.ChangeAbilities(PlayerInside);
+            h.Init(PlayerInside);
+        }
+
         [ContextMenu("Initialize")]
         public void EditorInitialize()
         {
@@ -118,7 +135,10 @@ namespace Netrunner.ModuleComponents {
                 s = g.GetComponent<Selection>();
             }
             foreach (ModuleAction ma in Actions)
+            {
                 if (ma is SelectingAction) ((SelectingAction)ma).selection = s;
+                ma.enabled = false;
+            }
         }
 
     }
