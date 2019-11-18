@@ -37,11 +37,6 @@ namespace Netrunner.SelectableObjects
             boxTrig.enabled = false;
         }
 
-        private void Start()
-        {
-            Invoke("Act", 1f);
-        }
-
         void SelectableTarget.SetGlow(int player, bool enabled)
         {
             throw new System.NotImplementedException();
