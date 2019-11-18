@@ -7,6 +7,8 @@ namespace Netrunner
 {
     public class PlayerPacket : MonoBehaviour
     {
+        public CameraFollow cameraFollow;
+
         public static PlayerPacket[] Instances = new PlayerPacket[3];
 
         public ParticleSystem particle;
@@ -35,6 +37,7 @@ namespace Netrunner
             MoveTarget = target;
             TargetObj = transform;
             this.transform.position = startPos;
+            cameraFollow.target = this.transform;
             particle.Play(false);
             particleSwirl2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
@@ -50,6 +53,7 @@ namespace Netrunner
             HackTarget = target;
             TargetObj = transform;
             this.transform.position = startPos;
+            cameraFollow.target = this.transform;
             particle.Play(false);
             particleSwirl2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
@@ -66,6 +70,7 @@ namespace Netrunner
             transform.position = Vector3.MoveTowards(transform.position, TargetObj.position, Velocity * Time.deltaTime);
             if(transform.position == TargetObj.position)
             {
+                cameraFollow.target = TargetObj;
                 if (Hacking)
                 {
                     HackTarget.HackIn(player);

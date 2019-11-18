@@ -87,7 +87,10 @@ namespace Netrunner.Network
                 }
             }
             foreach (NodeAction a in Actions)
+            {
                 if (a is NetworkHackAction) ((NetworkHackAction)a).selections = s.ToArray();
+                a.enabled = false;
+            }
         }
         [ContextMenu("Initialize", true)]
         bool EditorValidate()
