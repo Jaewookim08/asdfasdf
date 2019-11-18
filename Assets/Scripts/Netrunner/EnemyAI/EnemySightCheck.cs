@@ -8,11 +8,14 @@ public class EnemySightCheck : MonoBehaviour
     public float sightAngle;
     public GameObject parent;
 
+    int layerMask;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.localScale = new Vector3(0.566f * sightRadius, transform.localScale.y, transform.localScale.z);
-        
+        layerMask = (1 << LayerMask.NameToLayer("Enemies"));
+        layerMask = ~layerMask;
     }
 
     // Update is called once per frame
@@ -26,12 +29,23 @@ public class EnemySightCheck : MonoBehaviour
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, sightRadius);
         int i = 0;
+
         while (i < hitColliders.Length)
         {
             GameObject foundObject = hitColliders[i].gameObject;
             if (inSightAngle(foundObject) && foundObject.tag == "Player")
             {
-                Debug.DrawLine(transform.position, foundObject.transform.position, Color.red);
+                //Debug.DrawLine(transform.position, foundObject.transform.position, Color.red);
+
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, foundObject.transform.position - transform.position, sightRadius, layerMask);
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    //Debug.Log("hit something");
+                    //Debug.Log(hit.collider.gameObject.tag);
+                    //Debug.Log(hit.collider.transform.position);
+                    Debug.DrawRay(transform.position, hit.collider.transform.position - transform.position, Color.red);
+                    //Debug.DrawLine(transform.position, foundObject.transform.position, Color.red);
+                }
             }
             i++;
         }

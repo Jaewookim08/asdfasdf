@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 16557186}
   - component: {fileID: 16557185}
   - component: {fileID: 16557184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 343049636}
   - component: {fileID: 343049635}
   - component: {fileID: 343049638}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundCheckBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 1150959808}
   - component: {fileID: 1150959806}
   - component: {fileID: 1150959807}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ObstacleCheckBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1203252729}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PatrolPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 1285037698}
   - component: {fileID: 1285037700}
   - component: {fileID: 1285037697}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd13c26554c18eb44bc40a19138d3f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRadius: 3
+  sightRadius: 5
   sightAngle: 40
   parent: {fileID: 1593976450}
 --- !u!1 &1559903394
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 1559903398}
   - component: {fileID: 1559903397}
   - component: {fileID: 1559903396}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dest (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 1593976453}
   - component: {fileID: 1593976452}
   - component: {fileID: 1593976451}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593976450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.17, y: -0.79, z: 0}
+  m_LocalPosition: {x: 1.34, y: -0.74, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 1203252729}
@@ -2764,7 +2764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TintSprites: []
-  Glow: 000000
   Actions:
   - {fileID: 2017953936}
   - {fileID: 2017953943}
@@ -2776,7 +2775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017953935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.39, y: 0.34, z: 0}
+  m_LocalPosition: {x: -3.32, y: -0.79, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2918,7 +2917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061025819}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CheckBars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
