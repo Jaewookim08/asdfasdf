@@ -46,11 +46,9 @@ public class EnemySightCheck : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, sightRay, sightRadius, layerMask);
                     if (hit.collider != null && hit.collider.gameObject.tag == "Player")
                     {
-                        Debug.Log("hit enemy");
-                        //Debug.Log(hit.collider.gameObject.tag);
-                        //Debug.Log(hit.collider.transform.position);
-                        Debug.DrawRay(transform.position, sightRay, Color.red);
-                        //Debug.DrawLine(transform.position, foundObject.transform.position, Color.red);
+                        Debug.Log("hit player");
+                        Debug.DrawRay(transform.position, sightRay*sightRadius, Color.red);
+                        //getAlarmfunction from player object
                         break;
                     }
 
