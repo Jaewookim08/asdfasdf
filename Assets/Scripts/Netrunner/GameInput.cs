@@ -71,7 +71,7 @@ namespace Netrunner {
 
 
         public static List<KeyCode> GetRealKeys(int player, Key key) {
-            return SaveManager.current.KeyBindings[player]
+            return SaveManager.Current.KeyBindings[player]
                 .Select(keyList => keyList[(int) key])
                 .Where(k => k != KeyCode.None).ToList();
         }
