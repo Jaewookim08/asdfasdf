@@ -144,6 +144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 730026674}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -446,6 +451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 730026674}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -649,8 +659,30 @@ PrefabInstance:
       propertyPath: t2
       value: 
       objectReference: {fileID: 1266951610}
+    - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+        type: 3}
+      propertyPath: CurrentId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+        type: 3}
+      propertyPath: NextScene
+      value: tutorial4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586d62b35e9218c4da2c3429d0eb6d35, type: 3}
+--- !u!114 &730026674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 730026673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9619c4d75334a9640ad3253a904d5367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &767566646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,6 +695,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: Connections.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: Connections.Array.data[3]
+      value: 
+      objectReference: {fileID: 1124159130}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -718,16 +760,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
-        type: 3}
-      propertyPath: Connections.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
-        type: 3}
-      propertyPath: Connections.Array.data[3]
-      value: 
-      objectReference: {fileID: 1124159130}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99b28169c80985f48b44a2ac90a0d271, type: 3}
 --- !u!1001 &881606784
@@ -931,6 +963,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOpener (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Connections.Array.data[1]
+      value: 
+      objectReference: {fileID: 43607867}
     - target: {fileID: 4613577107169127896, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -986,11 +1023,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Connections.Array.data[1]
-      value: 
-      objectReference: {fileID: 43607867}
     - target: {fileID: 4613577107169127878, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: ActionKey
@@ -1021,6 +1053,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOpener (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Connections.Array.data[1]
+      value: 
+      objectReference: {fileID: 1925169413}
     - target: {fileID: 4613577107169127896, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1076,11 +1113,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Connections.Array.data[1]
-      value: 
-      objectReference: {fileID: 1925169413}
     - target: {fileID: 4613577107169127878, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: ActionKey
@@ -2063,6 +2095,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOpener
       objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Actions.Array.data[1]
+      value: 
+      objectReference: {fileID: 331285700}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Connections.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Connections.Array.data[3]
+      value: 
+      objectReference: {fileID: 277571334}
     - target: {fileID: 4613577107169127896, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2118,26 +2170,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Actions.Array.data[1]
-      value: 
-      objectReference: {fileID: 331285700}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Connections.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Connections.Array.data[3]
-      value: 
-      objectReference: {fileID: 277571334}
     - target: {fileID: 4613577107169127878, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: ActionKey
@@ -2162,6 +2194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOpener (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
+        type: 3}
+      propertyPath: Connections.Array.data[1]
+      value: 
+      objectReference: {fileID: 277571334}
     - target: {fileID: 4613577107169127896, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2217,11 +2254,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4613577107169127879, guid: 1f87a57b7128b9340a3fbcaea1364262,
-        type: 3}
-      propertyPath: Connections.Array.data[1]
-      value: 
-      objectReference: {fileID: 277571334}
     - target: {fileID: 4613577107169127878, guid: 1f87a57b7128b9340a3fbcaea1364262,
         type: 3}
       propertyPath: target

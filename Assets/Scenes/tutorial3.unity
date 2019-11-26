@@ -266,8 +266,30 @@ PrefabInstance:
       propertyPath: t2
       value: 
       objectReference: {fileID: 396303924}
+    - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+        type: 3}
+      propertyPath: CurrentId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+        type: 3}
+      propertyPath: NextScene
+      value: tutorial4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586d62b35e9218c4da2c3429d0eb6d35, type: 3}
+--- !u!114 &236102527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 236102526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9619c4d75334a9640ad3253a904d5367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281378733
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 236102527}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -980,6 +1007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 236102527}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x

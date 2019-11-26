@@ -8,6 +8,7 @@ namespace Netrunner.Network
 {
     public class NetworkNode : MonoBehaviour
     {
+        public PlayerContainedTracker tracker;
         const float PacketVelocity = 10f;
         
         [HideInInspector]
@@ -50,6 +51,7 @@ namespace Netrunner.Network
 
         public void MoveOut(int player)
         {
+            if (tracker != null) tracker.PlayerOut();
             Player[player] = false;
             if (!(Player[1] || Player[2]))
                 foreach (NodeAction action in Actions)
@@ -58,6 +60,7 @@ namespace Netrunner.Network
 
         public virtual void MoveIn(int player)
         {
+            if (tracker != null) tracker.PlayerIn();
             Player[player] = true;
             UI.UIManager.current.ChangeAbilities(player);
             foreach(NodeAction action in Actions)
