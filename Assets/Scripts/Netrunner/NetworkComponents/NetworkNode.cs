@@ -9,7 +9,7 @@ namespace Netrunner.Network
     public class NetworkNode : MonoBehaviour
     {
         public PlayerContainedTracker tracker;
-        const float PacketVelocity = 10f;
+        const float PacketVelocity = 20f;
         
         [HideInInspector]
         public bool[] Player = new bool[3];

@@ -7,6 +7,8 @@ namespace Netrunner
 {
     public class PlayerPacket : MonoBehaviour
     {
+        const float HackSpeed = 10f;
+
         public CameraFollow cameraFollow;
 
         public static PlayerPacket[] Instances = new PlayerPacket[3];
@@ -50,6 +52,7 @@ namespace Netrunner
         {
             Moving = true;
             Hacking = true;
+            Velocity = HackSpeed;
             HackTarget = target;
             TargetObj = transform;
             this.transform.position = startPos;

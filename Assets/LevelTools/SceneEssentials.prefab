@@ -19147,7 +19147,7 @@ MonoBehaviour:
   particleSwirl: {fileID: 3788464007925263076}
   particleSwirl2: {fileID: 5813885805719099918}
   player: 1
-  Velocity: 3
+  Velocity: 6
 --- !u!198 &8420367061819772730
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -24020,7 +24020,7 @@ MonoBehaviour:
   particleSwirl: {fileID: 1693837392015933570}
   particleSwirl2: {fileID: 6935746741089902695}
   player: 2
-  Velocity: 3
+  Velocity: 6
 --- !u!199 &8154150892356391412
 ParticleSystemRenderer:
   serializedVersion: 6

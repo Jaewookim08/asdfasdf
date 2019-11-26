@@ -19,6 +19,11 @@ namespace Netrunner.ModuleComponents {
 
         [SerializeField] protected GameInput.Key ActionKey;
 
+        public virtual float GetSuspicion()
+        {
+            return 0f;
+        }
+
         
         /// <summary>
         /// Called when player gets in the module

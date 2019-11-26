@@ -29,6 +29,11 @@ namespace Netrunner.ModuleComponents{
 //            m_Rigidbody2D.AddForce(new Vector2(GameInput.GetHorizontalAxis(player) * moveAcceleration, 0));
             m_Rigidbody2D.velocity = (new Vector2(GameInput.GetHorizontal(player) * moveSpeed, m_Rigidbody2D.velocity.y));
         }
-        
+
+        public override float GetSuspicion()
+        {
+            return m_Rigidbody2D.velocity.magnitude;
+        }
+
     }
 }

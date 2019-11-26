@@ -15,6 +15,7 @@ namespace Netrunner.ModuleComponents {
         /// List of all ModuleActions in this module
         /// </summary>
         public List<ModuleAction> Actions = new List<ModuleAction>();
+        public float BaseSuspicion = 5f;
 
 
         /// <summary>
@@ -66,7 +67,14 @@ namespace Netrunner.ModuleComponents {
 
         public float GetSuspiciousness()
         {
-            return 0f;
+            if (PlayerInside == 0) return 0f;
+            float sus = BaseSuspicion;
+            foreach(ModuleAction action in Actions)
+            {
+                sus += action.GetSuspicion();
+            }
+
+            return sus;
         }
 
         public void ModuleDestroy()
