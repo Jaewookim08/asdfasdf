@@ -62,13 +62,14 @@ namespace Netrunner.Network
 
         public bool MoveAvailable()
         {
-            if (MaxUse == -1 || MaxUse > 1) return true;
+            if (MaxUse == -1 || MaxUse > 0) return true;
             else return false;
         }
 
         public void MoveDeclare(int player)
         {
-            if (MaxUse > 1) MaxUse--;
+            Debug.Log("movdec");
+            if (MaxUse > 0) MaxUse--;
         }
 
         public virtual void MoveIn(int player)

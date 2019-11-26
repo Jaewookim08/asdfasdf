@@ -7,7 +7,7 @@ namespace Netrunner.ModuleComponents {
         public GameObject CanPrefab;
 
         private void Update() {
-            if (GameInput.GetKey(player, ActionKey))
+            if (GameInput.GetKeyDown(player, ActionKey))
             {
                 float dir = 1;
                 GameObject g = Instantiate(CanPrefab);

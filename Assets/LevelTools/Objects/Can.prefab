@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93310956941404402}
   - component: {fileID: 93310956941404401}
+  - component: {fileID: -2213923347944750565}
   - component: {fileID: 93310956941404403}
   m_Layer: 0
   m_Name: Can
@@ -105,14 +106,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93310956941404400}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.60745704, y: -0.70153373, z: -2.9453125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 93310956646658980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &93310956941404401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,6 +140,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.48}
   m_EdgeRadius: 0
+--- !u!50 &-2213923347944750565
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93310956941404400}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &93310956941404403
 MonoBehaviour:
   m_ObjectHideFlags: 0
