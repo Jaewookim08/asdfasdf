@@ -612,6 +612,8 @@ MonoBehaviour:
   facingWall: 0
   onGround: 0
   right: 0
+  state: 0
+  chasePlayerObject: {fileID: 0}
 --- !u!50 &1125456039
 Rigidbody2D:
   serializedVersion: 4
@@ -3149,7 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 6
+  moveForce: 40
   moveSpeed: 4.5
 --- !u!114 &2017953937
 MonoBehaviour:
@@ -3164,7 +3166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TintSprites: []
-  Glow: 000000
   Actions:
   - {fileID: 2017953936}
   - {fileID: 2017953943}
@@ -3244,7 +3245,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -3305,10 +3306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 3
-  jumpSpeed: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  jumpSpeed: 7
 --- !u!1 &2036811089
 GameObject:
   m_ObjectHideFlags: 0
