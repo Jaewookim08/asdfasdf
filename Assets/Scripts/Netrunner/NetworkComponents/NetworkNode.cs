@@ -8,6 +8,8 @@ namespace Netrunner.Network
 {
     public class NetworkNode : MonoBehaviour
     {
+        static readonly Color[] colors = new Color[]{ Color.white, Color.black, Color.red, Color.yellow, Color.green, Color.cyan, Color.magenta };
+
         public PlayerContainedTracker tracker;
         const float PacketVelocity = 20f;
         public int MaxUse = -1;
@@ -24,6 +26,8 @@ namespace Netrunner.Network
         /// 0 1 2 3 -> R U L D
         /// </summary>
         public NetworkNode[] Connections = new NetworkNode[4];
+         NetworkNode[] LastConnection = new NetworkNode[4];
+         LineRenderer[] Lines = new LineRenderer[4];
 
         // Update is called once per frame
         void Update()
@@ -70,6 +74,7 @@ namespace Netrunner.Network
         {
             Debug.Log("movdec");
             if (MaxUse > 0) MaxUse--;
+            UpdateLines();
         }
 
         public virtual void MoveIn(int player)
@@ -83,6 +88,95 @@ namespace Netrunner.Network
                 action.Init(player);
             }
         }
+
+
+        [ContextMenu("UpdateLines")]
+        void UpdateLines()
+        {
+            for(int i=0; i<4; i++)
+            {
+                if (Lines[i] != null)
+                {
+                    Lines[i].SetPosition(0, transform.position);
+                    Lines[i].SetPosition(1, Connections[i].transform.position);
+                    Lines[i].startColor = colors[(MaxUse>5?5:MaxUse)+1];
+                    Lines[i].endColor = colors[(Connections[i].MaxUse > 5 ? 5 : Connections[i].MaxUse) + 1];
+                }
+            }
+        }
+
+#if UNITY_EDITOR
+        
+        [ContextMenu("DestroyThis")]
+        void DestroyThis()
+        {
+            for(int i=0; i<4; i++)
+            {
+                if (Connections[i] == null) continue;
+                int revDir = (i + 2) % 4;
+                Connections[i].Connections[revDir] = Connections[i].LastConnection[revDir] = null;
+                Connections[i].Lines[revDir] = null;
+                if (Lines[i] == null || Lines[i].gameObject == null) return;
+                DestroyImmediate(Lines[i].gameObject, false);
+            }
+            DestroyImmediate(this, false);
+        }
+
+        IEnumerator DestroyEditorDelayed(GameObject g)
+        {
+            yield return new WaitForEndOfFrame();
+            DestroyImmediate(g, false);
+        }
+
+        private void OnValidate()
+        {
+            if (LastConnection == null)
+                LastConnection = new NetworkNode[4];
+            if (Lines == null)
+                Lines = new LineRenderer[4];
+
+            for (int i=0; i<4; i++)
+            {
+                if (Connections[i] != LastConnection[i])
+                {
+                    int revDir = (i + 2) % 4;
+                    if (Connections[i] == null)
+                    {
+                        LastConnection[i].Connections[revDir] = LastConnection[i].LastConnection[revDir] = null;
+                        LastConnection[i].Lines[revDir] = null;
+                        LastConnection[i] = null;
+                        if (Lines[i] != null)
+                        {
+                            StartCoroutine(DestroyEditorDelayed(Lines[i].gameObject));
+                            Lines[i] = null;
+                        }
+                        LastConnection[i] = Connections[i];
+                        return;
+                    }
+
+
+                    if (LastConnection[i] != null)
+                    {
+                        LastConnection[i].Connections[revDir] = null;
+                        LastConnection[i].LastConnection[revDir] = null;
+                        LastConnection[i].Lines[revDir] = null;
+                    }
+                    else
+                    {
+                        GameObject parent = GameObject.Find("NetLines");
+                        if (parent == null) parent = new GameObject("NetLines");
+                        GameObject g = Instantiate(Resources.Load<GameObject>("Builder/NetLine"), parent.transform);
+                        Lines[i] = g.GetComponent<LineRenderer>();
+                    }
+                    LastConnection[i] = Connections[i];
+                    Connections[i].Connections[revDir] = this;
+                    Connections[i].LastConnection[revDir] = this;
+                    Connections[i].Lines[revDir] = Lines[i];
+                    UpdateLines();
+                }
+            }
+        }
+        
 
 
         [ContextMenu("Initialize")]
@@ -114,6 +208,6 @@ namespace Netrunner.Network
         {
             return !(this is NetworkConsole);
         }
+        #endif
     }
-
 }
