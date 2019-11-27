@@ -7,7 +7,7 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
 namespace Netrunner {
-    public static class GameInput {
+    public static class GameInput{
         public enum Key {None=0, Action1=1, Action2=2, Action3=3, Action4=4, Action5=5, Action6=6, Left=7, Right=8, Up=9, Down=10};
         
 
