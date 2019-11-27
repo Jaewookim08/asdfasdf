@@ -8,6 +8,7 @@ namespace Netrunner
     public class Selection : MonoBehaviour
     {
         public GameObject Cursor;
+        public GameObject RangeInd;
 
         protected const float CursorSpeed = 10f;
         protected const float CancelTime = 0.5f;
@@ -26,6 +27,9 @@ namespace Netrunner
         {
             PlayerInside = player;
             this.range = range;
+            Vector3 sc = transform.lossyScale;
+            RangeInd.transform.localScale = new Vector3(range/sc.x, range/sc.x, 1);
+            RangeInd.SetActive(true);
             Joystick = false;
             Cursor.transform.localPosition = Offset = Vector3.zero;
             Cursor.layer = PlayerInside == 1 ? LayerMask.NameToLayer("Player1View") : LayerMask.NameToLayer("Player2View");
@@ -46,6 +50,7 @@ namespace Netrunner
             coroutine = null;
 
             Cursor.SetActive(false);
+            RangeInd.SetActive(false);
 
             GameObject temp = CurrentTarget;
             CurrentTarget = null;

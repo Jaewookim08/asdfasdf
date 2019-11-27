@@ -6,7 +6,21 @@ using System.IO;
 
 public static class SaveManager
 {
-    public static PlayerData current = new PlayerData();
+    static PlayerData current = null;
+    public static PlayerData Current
+    {
+        get
+        {
+            if (current == null)
+            {
+                if (Load("savefile") == -1)
+                {
+                    current = new PlayerData();
+                }
+            }
+            return current;
+        }
+    }
     public static string SavefileVersion = "0.0.0";
 
     public static int Save()

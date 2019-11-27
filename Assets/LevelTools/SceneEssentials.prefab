@@ -9517,6 +9517,7 @@ GameObject:
   - component: {fileID: 522867516316699129}
   - component: {fileID: 5692006934180667978}
   - component: {fileID: 1319639153269207641}
+  - component: {fileID: 7578863118647188917}
   m_Layer: 0
   m_Name: SceneEssentials
   m_TagString: Untagged
@@ -9573,6 +9574,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera1: {fileID: 9182018033067934462}
   Camera2: {fileID: 9182018034340534733}
+--- !u!114 &7578863118647188917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664776520947963985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9619c4d75334a9640ad3253a904d5367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playercnt: 0
+  NextScene: 
+  CurrentId: 0
 --- !u!1 &2901240852890066283
 GameObject:
   m_ObjectHideFlags: 0
@@ -19131,7 +19147,7 @@ MonoBehaviour:
   particleSwirl: {fileID: 3788464007925263076}
   particleSwirl2: {fileID: 5813885805719099918}
   player: 1
-  Velocity: 3
+  Velocity: 6
 --- !u!198 &8420367061819772730
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -24004,7 +24020,7 @@ MonoBehaviour:
   particleSwirl: {fileID: 1693837392015933570}
   particleSwirl2: {fileID: 6935746741089902695}
   player: 2
-  Velocity: 3
+  Velocity: 6
 --- !u!199 &8154150892356391412
 ParticleSystemRenderer:
   serializedVersion: 6

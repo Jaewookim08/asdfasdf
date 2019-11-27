@@ -9,11 +9,7 @@ public class PlayerData
 {
     public string FileName = "savefile";
     public string Version = "NotSet";
-    public float flo = 0;
-    public int Levels = 2;
-    public int LastLevel = 1;
-    public int SpellPoints = 0;
-    public int StatPoints = 0;
+    public int CompletedLevel = 0;
 
     public List<KeyCode>[][] KeyBindings = new List<KeyCode>[3][]
     {
