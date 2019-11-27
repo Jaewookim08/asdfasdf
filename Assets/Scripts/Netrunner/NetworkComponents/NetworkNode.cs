@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 
 using UnityEngine;
 
@@ -26,8 +27,8 @@ namespace Netrunner.Network
         /// 0 1 2 3 -> R U L D
         /// </summary>
         public NetworkNode[] Connections = new NetworkNode[4];
-         NetworkNode[] LastConnection = new NetworkNode[4];
-         LineRenderer[] Lines = new LineRenderer[4];
+        public NetworkNode[] LastConnection = new NetworkNode[4];
+        public LineRenderer[] Lines = new LineRenderer[4];
 
         // Update is called once per frame
         void Update()
@@ -72,7 +73,6 @@ namespace Netrunner.Network
 
         public void MoveDeclare(int player)
         {
-            Debug.Log("movdec");
             if (MaxUse > 0) MaxUse--;
             UpdateLines();
         }
@@ -110,6 +110,7 @@ namespace Netrunner.Network
         [ContextMenu("DestroyThis")]
         void DestroyThis()
         {
+            Debug.Log("DestroyThis");
             for(int i=0; i<4; i++)
             {
                 if (Connections[i] == null) continue;
@@ -130,20 +131,22 @@ namespace Netrunner.Network
 
         private void OnValidate()
         {
-            if (LastConnection == null)
-                LastConnection = new NetworkNode[4];
-            if (Lines == null)
-                Lines = new LineRenderer[4];
-
             for (int i=0; i<4; i++)
             {
                 if (Connections[i] != LastConnection[i])
                 {
+                    Debug.Log("Changed, "+LastConnection[i]+" > "+Connections[i]);
                     int revDir = (i + 2) % 4;
+                    
+                    if (LastConnection[i] != null)
+                    {
+                        LastConnection[i].Connections[revDir] = null;
+                        LastConnection[i].LastConnection[revDir] = null;
+                        LastConnection[i].Lines[revDir] = null;
+                    }
+
                     if (Connections[i] == null)
                     {
-                        LastConnection[i].Connections[revDir] = LastConnection[i].LastConnection[revDir] = null;
-                        LastConnection[i].Lines[revDir] = null;
                         LastConnection[i] = null;
                         if (Lines[i] != null)
                         {
@@ -151,17 +154,17 @@ namespace Netrunner.Network
                             Lines[i] = null;
                         }
                         LastConnection[i] = Connections[i];
+                        Undo.RecordObjects(new Object[]{
+                            LastConnection[i].Connections[revDir],
+                            LastConnection[i].LastConnection[revDir],
+                            LastConnection[i].Lines[revDir],
+                            Connections[i].Connections[revDir],
+                            Connections[i].LastConnection[revDir],
+                            Connections[i].Lines[revDir]}, "AutoLine");
                         return;
                     }
-
-
-                    if (LastConnection[i] != null)
-                    {
-                        LastConnection[i].Connections[revDir] = null;
-                        LastConnection[i].LastConnection[revDir] = null;
-                        LastConnection[i].Lines[revDir] = null;
-                    }
-                    else
+                    
+                    if(Lines[i] == null)
                     {
                         GameObject parent = GameObject.Find("NetLines");
                         if (parent == null) parent = new GameObject("NetLines");
@@ -173,6 +176,14 @@ namespace Netrunner.Network
                     Connections[i].LastConnection[revDir] = this;
                     Connections[i].Lines[revDir] = Lines[i];
                     UpdateLines();
+
+                    Undo.RecordObjects(new Object[]{
+                        LastConnection[i].Connections[revDir],
+                        LastConnection[i].LastConnection[revDir],
+                        LastConnection[i].Lines[revDir],
+                        Connections[i].Connections[revDir],
+                        Connections[i].LastConnection[revDir],
+                        Connections[i].Lines[revDir]}, "AutoLine");
                 }
             }
         }
