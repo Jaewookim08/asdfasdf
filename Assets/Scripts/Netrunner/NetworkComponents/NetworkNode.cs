@@ -25,9 +25,12 @@ namespace Netrunner.Network
         /// <summary>
         /// 0 1 2 3 -> R U L D
         /// </summary>
+        [SerializeField]
         public NetworkNode[] Connections = new NetworkNode[4];
+        [SerializeField]
          NetworkNode[] LastConnection = new NetworkNode[4];
-         LineRenderer[] Lines = new LineRenderer[4];
+        [SerializeField]
+        LineRenderer[] Lines = new LineRenderer[4];
 
         // Update is called once per frame
         void Update()
@@ -161,12 +164,16 @@ namespace Netrunner.Network
                         LastConnection[i].LastConnection[revDir] = null;
                         LastConnection[i].Lines[revDir] = null;
                     }
-                    else
+                    else if (Lines[i] == null)
                     {
-                        GameObject parent = GameObject.Find("NetLines");
-                        if (parent == null) parent = new GameObject("NetLines");
-                        GameObject g = Instantiate(Resources.Load<GameObject>("Builder/NetLine"), parent.transform);
-                        Lines[i] = g.GetComponent<LineRenderer>();
+                        Lines[i] = Connections[i].Lines[revDir];
+                        if(Lines[i]==null)
+                        {
+                            GameObject parent = GameObject.Find("NetLines");
+                            if (parent == null) parent = new GameObject("NetLines");
+                            GameObject g = Instantiate(Resources.Load<GameObject>("Builder/NetLine"), parent.transform);
+                            Lines[i] = g.GetComponent<LineRenderer>();
+                        }
                     }
                     LastConnection[i] = Connections[i];
                     Connections[i].Connections[revDir] = this;
