@@ -16,7 +16,7 @@ namespace Netrunner.ModuleComponents
         public bool IsFacingRight { get; private set; } = true;
 
         private SpriteRenderer _mSpriteRenderer;
-
+      
         private void Start()
         {
             _mSpriteRenderer = GetComponent<SpriteRenderer>();
