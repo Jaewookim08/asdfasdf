@@ -358,7 +358,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &1976228169344762259
 SpriteRenderer:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
+  moveForce: 40
   moveSpeed: 6
 --- !u!114 &475784664182354547
 MonoBehaviour:

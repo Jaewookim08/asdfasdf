@@ -3169,6 +3169,7 @@ MonoBehaviour:
   Actions:
   - {fileID: 2017953936}
   - {fileID: 2017953943}
+  BaseSuspicion: 5
 --- !u!4 &2017953938
 Transform:
   m_ObjectHideFlags: 0
@@ -3306,7 +3307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 3
-  jumpSpeed: 7
+  impulse: 8
 --- !u!1 &2036811089
 GameObject:
   m_ObjectHideFlags: 0

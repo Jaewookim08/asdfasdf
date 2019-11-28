@@ -139,6 +139,7 @@ MonoBehaviour:
   Actions:
   - {fileID: 1163329146259037307}
   - {fileID: 3982822870875282562}
+  BaseSuspicion: 5
 --- !u!114 &1163329146259037307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3982822870875282562
 MonoBehaviour:
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
+  moveForce: 40
   moveSpeed: 6
 --- !u!61 &4850614044817301813
 BoxCollider2D:
@@ -383,6 +384,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1163329146259037305}
     m_Modifications:
+    - target: {fileID: 1343675690976139684, guid: ee904feb1c113e04fa66442caba98329,
+        type: 3}
+      propertyPath: m_Name
+      value: Selection
+      objectReference: {fileID: 0}
     - target: {fileID: 3820117476879924514, guid: ee904feb1c113e04fa66442caba98329,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -437,11 +443,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343675690976139684, guid: ee904feb1c113e04fa66442caba98329,
-        type: 3}
-      propertyPath: m_Name
-      value: Selection
       objectReference: {fileID: 0}
     - target: {fileID: 7129690929121364059, guid: ee904feb1c113e04fa66442caba98329,
         type: 3}

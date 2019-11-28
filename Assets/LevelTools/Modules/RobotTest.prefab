@@ -138,12 +138,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1163329145808975876}
   - {fileID: 1163329146311642878}
-  Glow: 000000
   Actions:
   - {fileID: 1163329146259037307}
   - {fileID: 1163329146259037308}
   - {fileID: 3982822870875282562}
   - {fileID: 5796079165263944092}
+  BaseSuspicion: 5
 --- !u!114 &1163329146259037307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3982822870875282562
 MonoBehaviour:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
+  moveForce: 40
   moveSpeed: 6
 --- !u!114 &5796079165263944092
 MonoBehaviour:
@@ -274,10 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 3
-  jumpSpeed: 8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  impulse: 8
 --- !u!61 &4850614044817301813
 BoxCollider2D:
   m_ObjectHideFlags: 0
