@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 7063656349066418825}
   - component: {fileID: 4052741144924538640}
   - component: {fileID: 475784664182354547}
+  - component: {fileID: 608071894879322745}
   m_Layer: 0
   m_Name: VendingMachine
   m_TagString: Untagged
@@ -429,6 +430,7 @@ MonoBehaviour:
   - {fileID: 7063656349066418825}
   - {fileID: 4052741144924538640}
   - {fileID: 475784664182354547}
+  - {fileID: 608071894879322745}
   BaseSuspicion: 5
 --- !u!114 &7063656349066418825
 MonoBehaviour:
@@ -476,6 +478,21 @@ MonoBehaviour:
   Icon: {fileID: 0}
   ActionKey: 2
   CanPrefab: {fileID: 93310956941404400, guid: dc9f7b4704d370c45a4eea52bdc7c701, type: 3}
+--- !u!114 &608071894879322745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555706731414061410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6145201f7ba4492a9dafb35f21eb66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 0
+  selection: {fileID: 6305559426652692063}
 --- !u!1 &6540490818960192237
 GameObject:
   m_ObjectHideFlags: 0

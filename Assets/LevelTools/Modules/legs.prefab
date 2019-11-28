@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 2562851537212102511}
   - component: {fileID: 2562851537212102487}
   - component: {fileID: 2562851537212102486}
+  - component: {fileID: 7293880184105480185}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -365,6 +366,7 @@ MonoBehaviour:
   - {fileID: 2562851537212102505}
   - {fileID: 2562851537212102510}
   - {fileID: 2562851537212102486}
+  - {fileID: 7293880184105480185}
   BaseSuspicion: 5
 --- !u!114 &2562851537212102507
 MonoBehaviour:
@@ -503,6 +505,21 @@ MonoBehaviour:
   Mass: 20
   SupportableMass: 50
   MovementPriority: 10
+--- !u!114 &7293880184105480185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562851537212102508}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6145201f7ba4492a9dafb35f21eb66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 0
+  selection: {fileID: 2270899376792257813}
 --- !u!1001 &2562851536488618221
 PrefabInstance:
   m_ObjectHideFlags: 0
