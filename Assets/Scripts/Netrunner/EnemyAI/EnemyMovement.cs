@@ -20,13 +20,14 @@ public class EnemyMovement : MonoBehaviour
     public bool onGround;
     public bool right;
     public int state;
+    public float AttackRange;
     public GameObject chasePlayerObject;
 
-    enum AI_State
-    {Patrol, Chase, Return};
+    public enum AI_State
+    {Patrol, Chase, Return, Attack};
 
 
-    Vector3 originalPos;
+    public Vector3 originalPos;
     List<Vector3> destPos;
     Vector3 currentDest;
 
@@ -56,6 +57,10 @@ public class EnemyMovement : MonoBehaviour
         right = true;
         rigid = gameObject.GetComponent<Rigidbody2D>();
         state = (int)AI_State.Patrol;
+
+        GameObject attackZone = transform.Find("AttackZone").gameObject;
+        attackZone.SetActive(false);
+
     }
 
     void Update()
@@ -70,6 +75,9 @@ public class EnemyMovement : MonoBehaviour
                 break;
             case ((int)AI_State.Return):
                 EnemyReturn();
+                break;
+            case ((int)AI_State.Attack):
+                EnemyAttack();
                 break;
         }
     }
@@ -151,6 +159,19 @@ public class EnemyMovement : MonoBehaviour
             iterator = 0;
             state = (int)AI_State.Patrol;
         }
+    }
+
+    void EnemyAttack()
+    {
+        StartCoroutine("Attack");
+    }
+
+    IEnumerator Attack()
+    {
+        transform.Find("AttackZone").gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        transform.Find("AttackZone").gameObject.SetActive(false);
+        state = (int)AI_State.Chase;
     }
 
 }

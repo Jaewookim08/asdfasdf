@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Netrunner.ModuleComponents;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ public class EnemySightCheck : MonoBehaviour
 {
     public float sightRadius;
     public float sightAngle;
+    public float susp;
+    public float suspThreshold;
+    public float suspDecrease;
+    public float suspMax;
+    public GameObject playerInSight;
     public GameObject parent;
 
     int layerMask;
@@ -16,6 +22,7 @@ public class EnemySightCheck : MonoBehaviour
         transform.localScale = new Vector3(0.566f * sightRadius, transform.localScale.y, transform.localScale.z);
         layerMask = (1 << LayerMask.NameToLayer("Enemies"));
         layerMask = ~layerMask;
+        susp = 0f;
     }
 
     // Update is called once per frame
@@ -23,12 +30,14 @@ public class EnemySightCheck : MonoBehaviour
     {
         DrawView();
         EnemySight();
+        CheckSusp();
     }
 
     void EnemySight()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, sightRadius);
         int i = 0;
+        playerInSight = null;
 
         while (i < hitColliders.Length)
         {
@@ -36,7 +45,6 @@ public class EnemySightCheck : MonoBehaviour
             if (inSightAngle(foundObject) && foundObject.tag == "Player")
             {
                 //Debug.DrawLine(transform.position, foundObject.transform.position, Color.red);
-
                 for (float tempAngle = -(sightAngle / 2); tempAngle <= (sightAngle / 2); tempAngle++) 
                 {
                     Vector3 sightRay = parent.GetComponent<EnemyMovement>().right
@@ -46,13 +54,16 @@ public class EnemySightCheck : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, sightRay, sightRadius, layerMask);
                     if (hit.collider != null && hit.collider.gameObject.tag == "Player")
                     {
-                        Debug.Log("hit player");
+                        Debug.Log("find player");
                         Debug.DrawRay(transform.position, sightRay*sightRadius, Color.red);
                         //getAlarmfunction from player object
+                        playerInSight = hit.collider.gameObject;
+                        if (susp < suspMax)
+                            susp += hit.collider.gameObject.GetComponent<ModuleManager>().GetSuspiciousness() * Time.deltaTime;
                         break;
                     }
-
                 }
+
 
             }
             i++;
@@ -70,6 +81,58 @@ public class EnemySightCheck : MonoBehaviour
             return true;
         }
         else
+            return false;
+    }
+
+    void CheckSusp()
+    {
+        if (playerInSight != null)
+        {
+            if (susp > suspThreshold)
+            {
+                //if patrol, change to chase
+                if (parent.GetComponent<EnemyMovement>().state == 0)
+                {
+                    parent.GetComponent<EnemyMovement>().state = 1;
+                }
+            }
+
+            if (parent.GetComponent<EnemyMovement>().state == 1 && closeToAttack())
+            {
+                parent.GetComponent<EnemyMovement>().state = 3;
+            }
+        }
+        else
+        {
+            if (susp > 0) 
+                susp -= suspDecrease * Time.deltaTime;
+            if (susp < 0) susp = 0;
+
+            if (susp <= suspThreshold)
+            {
+                //if chase, change to return
+                if (parent.GetComponent<EnemyMovement>().state == 1)
+                {
+                    parent.GetComponent<EnemyMovement>().state = 2;
+                }
+
+                //if return and arrive origin, change to patrol
+                if (parent.GetComponent<EnemyMovement>().state == 2 && parent.transform.position.x == parent.GetComponent<EnemyMovement>().originalPos.x)
+                {
+                    parent.GetComponent<EnemyMovement>().state = 0;
+                }
+            }
+        }
+    }
+
+    public bool closeToAttack()
+    {
+        if (playerInSight == null) 
+            return false;
+        if (Mathf.Abs(playerInSight.transform.position.x - parent.transform.position.x) 
+            < parent.GetComponent<EnemyMovement>().AttackRange) 
+            return true;
+        else 
             return false;
     }
 
