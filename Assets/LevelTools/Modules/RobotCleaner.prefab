@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3982822870875282562}
   - component: {fileID: 4850614044817301813}
   - component: {fileID: 6142782552979028023}
+  - component: {fileID: -4271326327161644383}
   m_Layer: 0
   m_Name: RobotCleaner
   m_TagString: Untagged
@@ -284,6 +285,20 @@ MonoBehaviour:
   Icon: {fileID: 0}
   ActionKey: 0
   selection: {fileID: 1407782327666482858}
+--- !u!114 &-4271326327161644383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163329146259037309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40577a44311a4dbe9239fa624a9f09e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  MovementAction: {fileID: 0}
 --- !u!1 &1163329146311642879
 GameObject:
   m_ObjectHideFlags: 0

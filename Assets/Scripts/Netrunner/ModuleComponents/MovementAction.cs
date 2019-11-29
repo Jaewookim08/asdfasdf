@@ -13,16 +13,19 @@ namespace Netrunner.ModuleComponents
         [SerializeField] private float moveSpeed = 6f;
 
         private Rigidbody2D _mRigidbody2D;
-
+        // Grab 상태면 움직이지 않아야.
+        private Grabbable _grabbable;
         // Start is called before the first frame update
         private void Start()
         {
-            _mRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+            _mRigidbody2D = GetComponent<Rigidbody2D>();
+            _grabbable = GetComponent<Grabbable>();
         }
 
         // Update is called once per frame
         private void FixedUpdate()
         {
+            if (_grabbable!=null && _grabbable.isGrabbed) return;
             var vel = _mRigidbody2D.velocity;
             if (Math.Abs(vel.x) > moveSpeed) {
                 vel.x = moveSpeed * (vel.x > 0 ? 1 : -1);

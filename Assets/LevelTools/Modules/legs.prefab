@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 2562851537212102487}
   - component: {fileID: 2562851537212102486}
   - component: {fileID: 7293880184105480185}
+  - component: {fileID: 512799855}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -419,7 +420,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   ActionKey: 0
   moveForce: 40
-  moveSpeed: 6
+  moveSpeed: 4.5
 --- !u!114 &2562851537212102510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +521,20 @@ MonoBehaviour:
   Icon: {fileID: 0}
   ActionKey: 0
   selection: {fileID: 2270899376792257813}
+--- !u!114 &512799855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562851537212102508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40577a44311a4dbe9239fa624a9f09e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  MovementAction: {fileID: 0}
 --- !u!1001 &2562851536488618221
 PrefabInstance:
   m_ObjectHideFlags: 0
