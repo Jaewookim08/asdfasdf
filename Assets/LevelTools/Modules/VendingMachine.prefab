@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549058581146871012}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 3, z: 1}
+  m_LocalPosition: {x: -0.0045, y: -0.0045, z: 0}
+  m_LocalScale: {x: 2.570271, y: 2.973354, z: 1}
   m_Children: []
   m_Father: {fileID: 6466970533322387959}
   m_RootOrder: 0
@@ -179,11 +179,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 4021183171127385890, guid: 2cdd29ea616afe142a0728bfed9e7beb,
-    type: 3}
-  m_Color: {r: 0, g: 1, b: 0.7467458, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  m_Sprite: {fileID: 21300000, guid: 7408800a0fbaecf4592f334a8b84646e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
@@ -478,6 +477,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   ActionKey: 2
   CanPrefab: {fileID: 93310956941404400, guid: dc9f7b4704d370c45a4eea52bdc7c701, type: 3}
+  DrinkCount: 2
 --- !u!114 &608071894879322745
 MonoBehaviour:
   m_ObjectHideFlags: 0
