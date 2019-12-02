@@ -10,7 +10,7 @@ namespace Netrunner.ModuleComponents {
         private void Update() {
             if (GameInput.GetKeyDown(player, ActionKey) && DrinkCount > 0)
             {
-                float dir = 1;
+                float dir = GetComponent<ChangeFacingDirectionAction>().FacingDir;
                 GameObject g = Instantiate(CanPrefab);
                 Rigidbody2D r2d = g.GetComponent<Rigidbody2D>();
                 g.transform.position = transform.position + new Vector3(dir * 1, -.5f, 0);
