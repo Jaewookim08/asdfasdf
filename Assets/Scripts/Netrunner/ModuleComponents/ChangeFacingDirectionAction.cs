@@ -11,12 +11,12 @@ namespace Netrunner.ModuleComponents
     {
         [SerializeField] private Selection selection;
 
-        public int GetFacingDir => IsFacingRight ? 1 : -1;
+        public int FacingDir => IsFacingRight ? 1 : -1;
         
         public bool IsFacingRight { get; private set; } = true;
 
         private SpriteRenderer _mSpriteRenderer;
-
+      
         private void Start()
         {
             _mSpriteRenderer = GetComponent<SpriteRenderer>();
