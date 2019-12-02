@@ -158,6 +158,9 @@ GameObject:
   - component: {fileID: 236278081921408538}
   - component: {fileID: 236278081921408737}
   - component: {fileID: 236278081921408536}
+  - component: {fileID: 5653824077706381333}
+  - component: {fileID: -2174884518261233029}
+  - component: {fileID: 1880643523}
   m_Layer: 0
   m_Name: upper
   m_TagString: Untagged
@@ -250,12 +253,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 236278081580773621}
   - {fileID: 236278082143610572}
-  Glow: 000000
   Actions:
   - {fileID: 236278081921408741}
   - {fileID: 236278081921408743}
   - {fileID: 236278081921408737}
   - {fileID: 236278081921408536}
+  - {fileID: 5653824077706381333}
+  - {fileID: 1880643523}
+  BaseSuspicion: 5
 --- !u!114 &236278081921408741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +295,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &236278081921408743
 MonoBehaviour:
@@ -306,8 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
-  moveSpeed: 6
+  moveForce: 40
+  moveSpeed: 4.5
 --- !u!61 &236278081921408537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -393,6 +398,56 @@ MonoBehaviour:
   Mass: 20
   SupportableMass: 5
   MovementPriority: -1
+--- !u!114 &5653824077706381333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236278081921408539}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6145201f7ba4492a9dafb35f21eb66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 0
+  selection: {fileID: 4563734936768151388}
+--- !u!255 &-2174884518261233029
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236278081921408539}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0.5}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!114 &1880643523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236278081921408539}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e0dd4a097b4fd0ad980f99f7d71f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 3
+  grabDistance: 2
+  grabHeight: 2
+  grabJoint: {fileID: -2174884518261233029}
 --- !u!1 &236278081965161285
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bea6bafb9ec1fd41bc4c7b36bf6ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: 0000
+  tracker: {fileID: 0}
+  MaxUse: -1
+  Player: 000000
   Movable: 010101
   Actions:
   - {fileID: 4613577107169127878}

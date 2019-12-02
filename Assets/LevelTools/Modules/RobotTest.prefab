@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3982822870875282562}
   - component: {fileID: 5796079165263944092}
   - component: {fileID: 4850614044817301813}
+  - component: {fileID: 5154878915497275972}
   m_Layer: 0
   m_Name: RobotTest
   m_TagString: Untagged
@@ -138,12 +139,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1163329145808975876}
   - {fileID: 1163329146311642878}
-  Glow: 000000
   Actions:
   - {fileID: 1163329146259037307}
   - {fileID: 1163329146259037308}
   - {fileID: 3982822870875282562}
   - {fileID: 5796079165263944092}
+  - {fileID: 5154878915497275972}
+  BaseSuspicion: 5
 --- !u!114 &1163329146259037307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3982822870875282562
 MonoBehaviour:
@@ -258,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
+  moveForce: 40
   moveSpeed: 6
 --- !u!114 &5796079165263944092
 MonoBehaviour:
@@ -274,10 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 3
-  jumpSpeed: 8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  impulse: 8
 --- !u!61 &4850614044817301813
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -304,6 +303,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25059953, y: 0.49344772}
   m_EdgeRadius: 0
+--- !u!114 &5154878915497275972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163329146259037309}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6145201f7ba4492a9dafb35f21eb66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 0
+  selection: {fileID: 1407782327666482858}
 --- !u!1 &1163329146311642879
 GameObject:
   m_ObjectHideFlags: 0

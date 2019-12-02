@@ -4,36 +4,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Netrunner.ModuleComponents{
-    [RequireComponent(typeof (Rigidbody2D))]
-    public class MovementAction : ModuleAction {
-        [SerializeField] private float moveAcceleration = 10f;
+namespace Netrunner.ModuleComponents
+{
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class MovementAction : ModuleAction
+    {
+        [SerializeField] private float moveForce = 40f;
         [SerializeField] private float moveSpeed = 6f;
-        private int player => Module.PlayerInside;
-        private Rigidbody2D m_Rigidbody2D;
-        
+
+        private Rigidbody2D _mRigidbody2D;
+        // Grab 상태면 움직이지 않아야.
+        private Grabbable _grabbable;
         // Start is called before the first frame update
-        private void Start() {
-            m_Rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        private void Start()
+        {
+            _mRigidbody2D = GetComponent<Rigidbody2D>();
+            _grabbable = GetComponent<Grabbable>();
         }
 
         // Update is called once per frame
-        private void Update() {
-//            var vel = m_Rigidbody2D.velocity;
-//            vel += new Vector2(GameInput.GetHorizontalAxis(player) * moveAcceleration * Time.deltaTime, 0);
-//            if (Math.Abs(vel.x) > moveSpeed) {
-//                vel.x = Math.Abs(vel.x) * (vel.x > 0 ? 1 : -1);
-//            }
-                
-//            m_Rigidbody2D.velocity = vel;
-//            m_Rigidbody2D.AddForce(new Vector2(GameInput.GetHorizontalAxis(player) * moveAcceleration, 0));
-            m_Rigidbody2D.velocity = (new Vector2(GameInput.GetHorizontal(player) * moveSpeed, m_Rigidbody2D.velocity.y));
+        private void FixedUpdate()
+        {
+            if (_grabbable!=null && _grabbable.isGrabbed) return;
+            var vel = _mRigidbody2D.velocity;
+            if (Math.Abs(vel.x) > moveSpeed) {
+                vel.x = moveSpeed * (vel.x > 0 ? 1 : -1);
+            }
+
+            _mRigidbody2D.velocity = vel;
+            _mRigidbody2D.AddForce(new Vector2(GameInput.GetHorizontal(player) * moveForce, 0));
         }
+        
 
         public override float GetSuspicion()
         {
-            return m_Rigidbody2D.velocity.magnitude;
+            return _mRigidbody2D.velocity.magnitude;
         }
-
     }
 }

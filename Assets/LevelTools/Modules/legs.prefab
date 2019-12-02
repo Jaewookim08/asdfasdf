@@ -268,6 +268,8 @@ GameObject:
   - component: {fileID: 2562851537212102511}
   - component: {fileID: 2562851537212102487}
   - component: {fileID: 2562851537212102486}
+  - component: {fileID: 7293880184105480185}
+  - component: {fileID: 512799855}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -360,12 +362,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 2562851537143036657}
   - {fileID: 2562851535487501140}
-  Glow: 000000
   Actions:
   - {fileID: 2562851537212102507}
   - {fileID: 2562851537212102505}
   - {fileID: 2562851537212102510}
   - {fileID: 2562851537212102486}
+  - {fileID: 7293880184105480185}
+  BaseSuspicion: 5
 --- !u!114 &2562851537212102507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +403,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2562851537212102505
 MonoBehaviour:
@@ -416,8 +419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 0
-  moveAcceleration: 10
-  moveSpeed: 6
+  moveForce: 40
+  moveSpeed: 4.5
 --- !u!114 &2562851537212102510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,10 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   ActionKey: 3
-  jumpSpeed: 8
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  impulse: 8
 --- !u!61 &2562851537212102511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -506,6 +506,35 @@ MonoBehaviour:
   Mass: 20
   SupportableMass: 50
   MovementPriority: 10
+--- !u!114 &7293880184105480185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562851537212102508}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6145201f7ba4492a9dafb35f21eb66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  ActionKey: 0
+  selection: {fileID: 2270899376792257813}
+--- !u!114 &512799855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562851537212102508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40577a44311a4dbe9239fa624a9f09e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  MovementAction: {fileID: 0}
 --- !u!1001 &2562851536488618221
 PrefabInstance:
   m_ObjectHideFlags: 0
