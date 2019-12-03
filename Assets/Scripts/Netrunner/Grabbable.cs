@@ -14,12 +14,14 @@ namespace Netrunner
         
         public Vector3 Position => transform.position;
         public Rigidbody2D Rigidbody { get; private set; }
+        public CombineAction CombineAction { get; private set; }
 
         private PositionConstraint _positionConstraint;
 
         private void Start()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
+            CombineAction = GetComponent<CombineAction>();
             _positionConstraint = GetComponent<PositionConstraint>();
         }
 
