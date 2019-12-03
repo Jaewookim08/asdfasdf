@@ -75,6 +75,7 @@ public static class SaveManager
         if (File.Exists(Application.persistentDataPath + "/" + FileName + ".sav"))
         {
             File.Delete(Application.persistentDataPath + "/" + FileName + ".sav");
+            if (current.FileName == FileName) current = null;
             return true;
         }
         else return false;
