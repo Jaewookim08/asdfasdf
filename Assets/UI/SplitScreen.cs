@@ -10,7 +10,7 @@ public class SplitScreen : MonoBehaviour
     void Start()
     {
         float margin = (160f / Screen.height);
-        Camera1.rect = new Rect(0f, margin, 0.49f, 1f-margin);
-        Camera2.rect = new Rect(0.51f, margin, 0.49f, 1f-margin);
+        Camera1.rect = new Rect(0f, margin, 0.5f, 1f-margin);
+        Camera2.rect = new Rect(0.5f, margin, 0.5f, 1f-margin);
     }
 }

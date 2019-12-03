@@ -607,7 +607,7 @@ MonoBehaviour:
   susp: 0
   suspThreshold: 0
   suspDecrease: 0
-  suspMax: 0
+  suspMax: 10
   playerInSight: {fileID: 0}
   parent: {fileID: 7966341583636125615}
 --- !u!58 &7966341583427071916

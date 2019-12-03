@@ -18,7 +18,7 @@ namespace Netrunner
         {
             Debug.Log(Application.persistentDataPath);
             int clev = SaveManager.Current.CompletedLevel;
-            for(int i=clev+1; i<8; i++)
+            for(int i=clev+1; i<Buttons.Count; i++)
             {
                 Buttons[i].interactable = false;
                 //Buttons[i].GetComponent<Image>().color = Color.gray;

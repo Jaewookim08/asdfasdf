@@ -11,7 +11,7 @@ public class EnemySightCheck : MonoBehaviour
     public float susp;
     public float suspThreshold;
     public float suspDecrease;
-    public float suspMax;
+    public float suspMax = 100f;
     public GameObject playerInSight;
     public GameObject parent;
 

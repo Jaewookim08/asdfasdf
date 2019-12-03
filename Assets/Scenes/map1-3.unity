@@ -7020,6 +7020,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7966341583427071913, guid: 6b87e6ad0a56b744cb6c1662346cc509,
+        type: 3}
+      propertyPath: sightAngle
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 7966341583636125611, guid: 6b87e6ad0a56b744cb6c1662346cc509,
         type: 3}
       propertyPath: m_Enabled

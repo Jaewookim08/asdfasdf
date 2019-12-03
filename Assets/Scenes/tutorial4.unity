@@ -636,6 +636,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.08
       objectReference: {fileID: 0}
+    - target: {fileID: 7966341583427071913, guid: 6b87e6ad0a56b744cb6c1662346cc509,
+        type: 3}
+      propertyPath: sightAngle
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7966341583636125611, guid: 6b87e6ad0a56b744cb6c1662346cc509,
         type: 3}
       propertyPath: m_Enabled
@@ -650,12 +655,12 @@ PrefabInstance:
     - target: {fileID: 7966341583636125608, guid: 6b87e6ad0a56b744cb6c1662346cc509,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.64
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 7966341583636125608, guid: 6b87e6ad0a56b744cb6c1662346cc509,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.64
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 7966341583701659022, guid: 6b87e6ad0a56b744cb6c1662346cc509,
         type: 3}
