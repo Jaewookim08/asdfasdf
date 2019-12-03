@@ -40,6 +40,8 @@ namespace Netrunner.ModuleComponents
         {
             var temp = _mBoxCollider2D.enabled;
             _mBoxCollider2D.enabled = false;
+            
+            Physics2D.queriesHitTriggers = false;
             var grounded = Physics2D.BoxCast(
                 transform.TransformPoint(
                     _mBoxCollider2D.offset - new Vector2(0, _mBoxCollider2D.size.y / 2 - 0.01f)),
