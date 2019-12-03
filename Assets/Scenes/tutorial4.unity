@@ -745,6 +745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1761713848}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,11 +805,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
-        type: 3}
-      propertyPath: tracker
-      value: 
-      objectReference: {fileID: 1761713848}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99b28169c80985f48b44a2ac90a0d271, type: 3}
 --- !u!1001 &1151382288
@@ -819,6 +819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1761713848}
     - target: {fileID: 2680954878680106176, guid: 99b28169c80985f48b44a2ac90a0d271,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -874,11 +879,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2680954878680106182, guid: 99b28169c80985f48b44a2ac90a0d271,
-        type: 3}
-      propertyPath: tracker
-      value: 
-      objectReference: {fileID: 1761713848}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99b28169c80985f48b44a2ac90a0d271, type: 3}
 --- !u!1001 &1258081024
@@ -966,12 +966,12 @@ PrefabInstance:
     - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
         type: 3}
       propertyPath: NextScene
-      value: tutorial2
+      value: tutorial5
       objectReference: {fileID: 0}
     - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
         type: 3}
       propertyPath: CurrentId
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9182018033067934433, guid: 586d62b35e9218c4da2c3429d0eb6d35,
         type: 3}

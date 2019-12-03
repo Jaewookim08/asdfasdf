@@ -7414,7 +7414,7 @@ PrefabInstance:
     - target: {fileID: 7578863118647188917, guid: 586d62b35e9218c4da2c3429d0eb6d35,
         type: 3}
       propertyPath: NextScene
-      value: stage1-2
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 9182018034194686890, guid: 586d62b35e9218c4da2c3429d0eb6d35,
         type: 3}

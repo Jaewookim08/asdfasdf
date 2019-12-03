@@ -18,7 +18,7 @@ namespace Netrunner
         {
             Debug.Log(Application.persistentDataPath);
             int clev = SaveManager.Current.CompletedLevel;
-            for(int i=clev+1; i<Buttons.Count; i++)
+            for(int i=clev+1; i<8; i++)
             {
                 Buttons[i].interactable = false;
                 //Buttons[i].GetComponent<Image>().color = Color.gray;
@@ -29,7 +29,6 @@ namespace Netrunner
         {
             if (i >= 1 && i<=5) SceneManager.LoadScene("tutorial" + i, LoadSceneMode.Single);
             else if (i >= 6 && i <= 8) SceneManager.LoadScene("map1-" + (i-5), LoadSceneMode.Single);
-            else if (i >= 9 && i <= 9) SceneManager.LoadScene("stage1-2", LoadSceneMode.Single);
         }
 
         public void StartBtn()
