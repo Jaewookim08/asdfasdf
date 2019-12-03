@@ -27,12 +27,16 @@ public class PlayerData
                 KeyCode.None , KeyCode.None , KeyCode.None , KeyCode.None})
         }
     };
+
+    public PlayerData()
+    {
+        Version = SaveManager.SavefileVersion;
+    }
     
 
     public static PlayerData CreateNew()
     {
         PlayerData d = new PlayerData();
-        d.Version = SaveManager.SavefileVersion;
         return d;
     }
 }
