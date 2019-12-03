@@ -1,4 +1,5 @@
 ﻿using Netrunner.ModuleComponents;
+using Netrunner.Objects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,12 +55,23 @@ public class EnemySightCheck : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, sightRay, sightRadius, layerMask);
                     if (hit.collider != null && hit.collider.gameObject.tag == "Player")
                     {
-                        Debug.Log("find player");
+                        //Debug.Log("find player");
                         Debug.DrawRay(transform.position, sightRay*sightRadius, Color.red);
                         //getAlarmfunction from player object
                         playerInSight = hit.collider.gameObject;
                         if (susp < suspMax)
                             susp += hit.collider.gameObject.GetComponent<ModuleManager>().GetSuspiciousness() * Time.deltaTime;
+                        break;
+                    }
+                    if (hit.collider != null && hit.collider.gameObject.tag == "Can" && !hit.collider.gameObject.GetComponent<Can>().EnemyHasChecked)
+                    {
+                        Debug.Log("find can");
+                        Debug.DrawRay(transform.position, sightRay * sightRadius, Color.red);
+                        //getAlarmfunction from player object
+                        playerInSight = hit.collider.gameObject;
+                        hit.collider.gameObject.GetComponent<Can>().EnemyHasChecked = true;
+                        if (susp < suspMax)
+                            susp += suspThreshold;
                         break;
                     }
                 }

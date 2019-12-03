@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Wall
   - Combinable
+  - Can
   layers:
   - Default
   - TransparentFX

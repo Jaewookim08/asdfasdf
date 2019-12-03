@@ -23967,7 +23967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Offset: {x: 0, y: 0, z: -10}
-  LerpSpeed: 0.3
+  LerpSpeed: 1
 --- !u!1 &9182018033121908658
 GameObject:
   m_ObjectHideFlags: 0
@@ -28831,7 +28831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Offset: {x: 0, y: 0, z: -10}
-  LerpSpeed: 0.3
+  LerpSpeed: 1
 --- !u!1001 &621007656067732414
 PrefabInstance:
   m_ObjectHideFlags: 0
