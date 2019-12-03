@@ -47,6 +47,7 @@ namespace Netrunner.ModuleComponents
                     _mBoxCollider2D.offset - new Vector2(0, _mBoxCollider2D.size.y / 2 - 0.01f)),
                 new Vector2(transform.TransformVector(_mBoxCollider2D.size).x - 0.08f, 0.01f),
                 0, Vector2.down, 0.1f, Physics2D.GetLayerCollisionMask(gameObject.layer));
+            Physics2D.queriesHitTriggers = true;
             _mBoxCollider2D.enabled = temp;
             return grounded;
         }

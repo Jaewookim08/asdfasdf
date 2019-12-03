@@ -106,6 +106,7 @@ public class EnemySightCheck : MonoBehaviour
                 if (parent.GetComponent<EnemyMovement>().state == 0)
                 {
                     parent.GetComponent<EnemyMovement>().state = 1;
+                    parent.GetComponent<EnemyMovement>().chasePlayerObject = playerInSight;
                 }
             }
 
@@ -126,6 +127,7 @@ public class EnemySightCheck : MonoBehaviour
                 if (parent.GetComponent<EnemyMovement>().state == 1)
                 {
                     parent.GetComponent<EnemyMovement>().state = 2;
+                    parent.GetComponent<EnemyMovement>().chasePlayerObject = null;
                 }
 
                 //if return and arrive origin, change to patrol

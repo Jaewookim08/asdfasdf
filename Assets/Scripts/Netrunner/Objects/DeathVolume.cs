@@ -9,6 +9,7 @@ namespace Netrunner.Objects
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("ASdf");
             ModuleManager mm = collision.GetComponent<ModuleManager>();
             if (mm != null)
             {
