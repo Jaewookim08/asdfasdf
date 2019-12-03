@@ -448,6 +448,7 @@ MonoBehaviour:
   grabDistance: 2
   grabHeight: 2
   grabJoint: {fileID: -2174884518261233029}
+  throwVector: {x: 3, y: 2}
 --- !u!1 &236278081965161285
 GameObject:
   m_ObjectHideFlags: 0

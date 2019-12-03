@@ -10,6 +10,7 @@ namespace Netrunner.ModuleComponents
         [SerializeField] private float grabDistance = 2f;
         [SerializeField] private float grabHeight = 2f;
         [SerializeField] private FixedJoint2D grabJoint;
+        [SerializeField] private Vector2 throwVector = new Vector2(3f, 1f);
         public bool IsGrabbing => _mGrabbing != null;
 
         private ChangeFacingDirectionAction _mFaceAction;
@@ -42,7 +43,7 @@ namespace Netrunner.ModuleComponents
         {
             UnGrab();
         }
-
+        
         private void Grab(Grabbable obj)
         {
             _mGrabbing = obj;
@@ -59,9 +60,17 @@ namespace Netrunner.ModuleComponents
             _mGrabbing.isGrabbed = false;
             grabJoint.enabled = false;
             _mGrabbing.Rigidbody.mass = _massRecord;
+            Throw(_mGrabbing);
             _mGrabbing = null;
         }
 
+        private void Throw(Grabbable obj)
+        {
+            Rigidbody2D body = obj.Rigidbody;
+            var vec = throwVector;
+            vec.x *= GetFacingDir();
+            body.AddForce(vec, ForceMode2D.Impulse);
+        }
         private Grabbable FindGrabbableObject()
         {
             var pos = (Vector2) transform.position;
