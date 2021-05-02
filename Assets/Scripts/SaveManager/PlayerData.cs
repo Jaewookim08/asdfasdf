@@ -15,7 +15,7 @@ public class PlayerData
     {
         null,
         new List<KeyCode>[2]{
-            new List<KeyCode>(new KeyCode[] {KeyCode.None, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.F, KeyCode.G, KeyCode.H,
+            new List<KeyCode>(new KeyCode[] {KeyCode.None, KeyCode.R, KeyCode.T, KeyCode.Space, KeyCode.F, KeyCode.G, KeyCode.H,
                 KeyCode.A, KeyCode.D, KeyCode.W, KeyCode.S }),
             new List<KeyCode>(new KeyCode[] { KeyCode.None, KeyCode.Joystick1Button7, KeyCode.Joystick1Button0, KeyCode.Joystick1Button1, KeyCode.Joystick1Button2, KeyCode.Joystick1Button3, KeyCode.Joystick1Button6,
                 KeyCode.None, KeyCode.None, KeyCode.None, KeyCode.None})
