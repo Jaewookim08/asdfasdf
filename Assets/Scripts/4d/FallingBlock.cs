@@ -12,7 +12,7 @@ namespace _4d
         }
         private void FixedUpdate()
         {
-            if (CheckAbove())
+            if (!TimeRunningState.IsRewindOn && CheckAbove())
             {
                 Debug.Log("asdf");
                 _rigidbody.bodyType = RigidbodyType2D.Dynamic;
